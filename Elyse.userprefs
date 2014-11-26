@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Languagetool/MisspelledWord.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Languagetool/ServerApi.cs">
     <Files>
       <File FileName="Main/Program.cs" Line="3" Column="1" />
       <File FileName="Languagetool/CommandLineApi.cs" Line="8" Column="3" />
