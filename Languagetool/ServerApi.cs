@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 namespace Elyse.Languagetool
 {
 	public class ServerApi : ILanguagetoolApi
 	{
 		private Process _proc;
+		private string _startServerCmd = "/usr/bin/java -cp /home/lighta/projects/LanguageTool-2.7/languagetool-server.jar org.languagetool.server.HTTPServer";
+		public string startServerCmd {
+			set { _startServerCmd = value; }
+		}
 
 		public ServerApi()
 		{
@@ -19,12 +24,13 @@ namespace Elyse.Languagetool
 			return new List<MisspeledWord> ();
 		}
 			
-		public void start(out string output)
+		public void Start(out string output)
 		{
 			output = "";
-			if (!IsServerRunning)
+
+			if (!IsRunning)
 			{
-				ProcessStartInfo procStartInfo = new ProcessStartInfo("/bin/bash", "");
+				ProcessStartInfo procStartInfo = new ProcessStartInfo("/bin/bash", "-c \""+_startServerCmd+"\"");
 
 				procStartInfo.RedirectStandardOutput = true;
 				procStartInfo.UseShellExecute = false;
@@ -44,7 +50,7 @@ namespace Elyse.Languagetool
 			}
 		}
 			
-		public void stop()
+		public void Stop()
 		{
 			if (_proc == null) {
 				throw new Exception ("Server has to be started");
@@ -55,14 +61,21 @@ namespace Elyse.Languagetool
 			}
 		}
 
-		public bool IsServerRunning
+		public bool IsRunning
 		{
 			get {
-				using (var ping = new Ping ()) {
-					var pingResult = ping.Send ("localhost:8081");
-
-					return (pingResult.Status == System.Net.NetworkInformation.IPStatus.Success);
+				bool running = true;
+				using (System.Net.Sockets.TcpClient client = new TcpClient ()) {
+					try
+					{
+						client.Connect("127.0.0.1", 8081);
+					} catch (SocketException ex)
+					{
+						running = false;
+					}
 				}
+
+				return running;
 			}
 		}
 	}
