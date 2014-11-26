@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Net.NetworkInformation;
 using System.Threading;
+using System.Net.NetworkInformation;
 
 namespace Elyse.Languagetool
 {
@@ -21,6 +21,7 @@ namespace Elyse.Languagetool
 			
 		public void start(out string output)
 		{
+			output = "";
 			if (!IsServerRunning)
 			{
 				ProcessStartInfo procStartInfo = new ProcessStartInfo("/bin/bash", "");
@@ -60,7 +61,7 @@ namespace Elyse.Languagetool
 				using (var ping = new Ping ()) {
 					var pingResult = ping.Send ("localhost:8081");
 
-					return (pingResult.Status == IPStatus.Success);
+					return (pingResult.Status == System.Net.NetworkInformation.IPStatus.Success);
 				}
 			}
 		}

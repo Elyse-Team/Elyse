@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace SpellChecker
+namespace Elyse.Languagetool
 {
 	public class ConsoleSandbox
 	{
 		public ConsoleSandbox ()
 		{
+			Console.WriteLine ("test");
 		}
 	}
 }
