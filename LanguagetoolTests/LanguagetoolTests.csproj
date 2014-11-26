@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}</ProjectGuid>
+    <ProjectGuid>{BA9D1E37-AAF1-4E5D-B7A7-6C188159BE1A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>LanguagetoolTests</RootNamespace>
+    <AssemblyName>LanguagetoolTests</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,16 +29,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="nunit.framework" />
-    <Reference Include="nunit.mocks, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServerApi.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Languagetool\Languagetool.csproj">
-      <Project>{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}</Project>
-      <Name>Languagetool</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

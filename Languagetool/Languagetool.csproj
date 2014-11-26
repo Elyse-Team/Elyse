@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SpellChecker</RootNamespace>
+    <RootNamespace>Elyse.Languagetool</RootNamespace>
     <AssemblyName>Languagetool</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -28,15 +28,16 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MisspelledWord.cs" />
     <Compile Include="CommandLineApi.cs" />
     <Compile Include="ILanguagetoolApi.cs" />
     <Compile Include="ServerApi.cs" />
+    <Compile Include="ConsoleSandbox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Net" />
+    <Reference Include="System" />
+  </ItemGroup>
 </Project>
