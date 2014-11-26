@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Languagetool/ServerApi.cs">
+    <Files>
+      <File FileName="Main/Program.cs" Line="3" Column="1" />
+      <File FileName="Languagetool/CommandLineApi.cs" Line="8" Column="3" />
+      <File FileName="Languagetool/ServerApi.cs" Line="22" Column="32" />
+      <File FileName="Languagetool/ILanguagetoolApi.cs" Line="1" Column="1" />
+      <File FileName="Languagetool/MisspelledWord.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
