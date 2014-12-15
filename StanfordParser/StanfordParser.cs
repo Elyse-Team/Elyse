@@ -10,7 +10,7 @@ using edu.stanford.nlp.pipeline;
 
 namespace StanfordParser
 {
-    public class Parser
+    public class StanfordParser
     {
         readonly StanfordCoreNLP _core;
         private Annotation _annotation;
@@ -27,7 +27,7 @@ namespace StanfordParser
         }
 
         // Builder
-        public Parser()
+        public StanfordParser()
         {
             // chemin d'accès aux modèles d'annotations
             var jarRoot = @"B:\Elyse\StanfordParser\CoreNLP";
