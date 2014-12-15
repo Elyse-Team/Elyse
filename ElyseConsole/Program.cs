@@ -13,8 +13,8 @@ namespace ElyseConsole
 
         static void Main(string[] args)
         {
-            Parser parser = new Parser();
-            System.Console.WriteLine("\nParser Loaded !FUCK YOU PEOPLEEEEEEE\n");
+            StanfordParser parser = new StanfordParser();
+            System.Console.WriteLine("\nParser Loaded ! FUCK YOU PEOPLEEEEEEE\n");
 
             bool on = true;
             while (on)
