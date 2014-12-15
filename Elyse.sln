@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool", "Languagetoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool.Tests", "Languagetool.Tests\Languagetool.Tests.csproj", "{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseParser", "StanfordParser\ElyseParser.csproj", "{D85DF255-38B7-47B0-9269-E0C873AF4CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseConsole", "ElyseConsole\ElyseConsole.csproj", "{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseLibrary", "ElyseLibrary\ElyseLibrary.csproj", "{72B50E23-E5F0-46B4-B836-26F992EA2B69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
