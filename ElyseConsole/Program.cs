@@ -14,7 +14,7 @@ namespace ElyseConsole
         static void Main(string[] args)
         {
             Parser parser = new Parser();
-            System.Console.WriteLine("\nParser Loaded !\n");
+            System.Console.WriteLine("\nParser Loaded !FUCK YOU PEOPLEEEEEEE\n");
 
             bool on = true;
             while (on)
