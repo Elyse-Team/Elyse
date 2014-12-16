@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool", "Languagetool\Languagetool.csproj", "{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool.Tests", "Languagetool.Tests\Languagetool.Tests.csproj", "{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool.Tests", "Languagetool.Tests\Languagetool.Tests.csproj", "{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +13,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Languagetool\Languagetool.csproj

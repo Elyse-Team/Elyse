@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Elyse.Languagetool</RootNamespace>
     <AssemblyName>Languagetool</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -27,17 +27,22 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Console.cs" />
+    <Compile Include="Exception.cs" />
+    <Compile Include="Languagetool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MisspelledWord.cs" />
-    <Compile Include="CommandLineApi.cs" />
-    <Compile Include="ILanguagetoolApi.cs" />
-    <Compile Include="ServerApi.cs" />
-    <Compile Include="ConsoleSandbox.cs" />
+    <Compile Include="Error.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Reference Include="System.Net" />
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
 </Project>
