@@ -7,6 +7,7 @@ Requirements
 -------------------
 
 - Windows system
+- Java
 - [LanguageTool server](https://languagetool.org/) [(download link)](https://languagetool.org/download/LanguageTool-2.7.zip)
 
 
