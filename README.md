@@ -21,3 +21,6 @@ Usage
 *Type in your browser for testing*
 
 [http://localhost:8081?language=en-US&text=a simple test](http://localhost:8081?language=en-US&text=a simple test)
+
+------------------------
+[LanguageTool server wiki](http://wiki.languagetool.org/http-server)
