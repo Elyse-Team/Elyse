@@ -7,7 +7,7 @@
     <ProjectGuid>{D85DF255-38B7-47B0-9269-E0C873AF4CD7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StanfordParser</RootNamespace>
+    <RootNamespace>ElyseParser</RootNamespace>
     <AssemblyName>StanfordParser</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

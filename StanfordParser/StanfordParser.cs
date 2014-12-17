@@ -8,7 +8,7 @@ using System;
 using System.IO;
 using edu.stanford.nlp.pipeline; 
 
-namespace StanfordParser
+namespace ElyseParser
 {
     public class StanfordParser
     {
@@ -30,7 +30,7 @@ namespace StanfordParser
         public StanfordParser()
         {
             // chemin d'accès aux modèles d'annotations
-            var jarRoot = @"B:\Elyse\StanfordParser\CoreNLP";
+            var jarRoot = @"B:\Visual Studio Projects\Elyse\StanfordParser\CoreNLP";
 
             // spécifications des modules d'annotations à lancer
             // Tokenizer - SentenceSplitter - PartOfSpeech - Lemma - Parser
