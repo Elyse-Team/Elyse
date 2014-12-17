@@ -177,9 +177,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StanfordParser\Parser.csproj">
+    <ProjectReference Include="..\StanfordParser\ElyseParser.csproj">
       <Project>{d85df255-38b7-47b0-9269-e0c873af4cd7}</Project>
-      <Name>Parser</Name>
+      <Name>ElyseParser</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
