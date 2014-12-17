@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B696B4B3-F34E-459B-9DBD-9194956DE9CF}</ProjectGuid>
+    <ProjectGuid>{72B50E23-E5F0-46B4-B836-26F992EA2B69}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ElyseLibrary</RootNamespace>
@@ -39,9 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Instructions\EntityBehaviors\BasicBehavior.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Fight.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Move.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Talk.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Think.cs" />
+    <Compile Include="Instructions\Instruction.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Feel.cs" />
+    <Compile Include="IPosition.cs" />
+    <Compile Include="ITarget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
