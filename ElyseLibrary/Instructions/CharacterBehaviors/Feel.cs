@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElyseLibrary.EntityBehaviors
+namespace ElyseLibrary
 {
     // Represent the mood of a character
     internal class Feel : BasicBehavior
@@ -16,7 +16,7 @@ namespace ElyseLibrary.EntityBehaviors
             set { _feeling = value; }
         }
 
-        public Feel(Entity character, string feeling)
+        public Feel(Character character, string feeling)
             : base(character)
         {
             Feeling = feeling;

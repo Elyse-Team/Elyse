@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElyseLibrary.EntityBehaviors
+namespace ElyseLibrary
 {
     // Move from a position to another position
     internal class Move : BasicBehavior

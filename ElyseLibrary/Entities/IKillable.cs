@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElyseLibrary.EntityBehaviors
+namespace ElyseLibrary
 {
-    // Talk alone or with another character
-    internal class Talk : BasicBehavior
+    public interface IKillable
     {
-
+        
     }
 }
