@@ -41,16 +41,18 @@
   <ItemGroup>
     <Compile Include="Entities\Character.cs" />
     <Compile Include="Entities\IKillable.cs" />
-    <Compile Include="Instructions\CharacterBehaviors\BasicBehavior.cs" />
-    <Compile Include="Instructions\CharacterBehaviors\Fight.cs" />
-    <Compile Include="Instructions\CharacterBehaviors\Move.cs" />
-    <Compile Include="Instructions\CharacterBehaviors\Talk.cs" />
-    <Compile Include="Instructions\CharacterBehaviors\Think.cs" />
+    <Compile Include="Entities\IMaterializable.cs" />
+    <Compile Include="Instructions\EntityBehaviors\BasicBehavior.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Fight.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Move.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Talk.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Think.cs" />
     <Compile Include="Instructions\Instruction.cs" />
-    <Compile Include="Instructions\CharacterBehaviors\Feel.cs" />
+    <Compile Include="Instructions\EntityBehaviors\Feel.cs" />
     <Compile Include="Entities\IPositionable.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Position.cs" />
+    <Compile Include="Instructions\SceneInstructions\Time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

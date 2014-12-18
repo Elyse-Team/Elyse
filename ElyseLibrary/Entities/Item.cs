@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Item : IPositionable
+    internal class Item : IPositionable, IMaterializable
     {
         // Position
         private bool _material;

@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
+    // Basic behavior of alive entities
+    // CHARACTER & ANIMAL
     internal abstract class BasicBehavior : Instruction
     {
-        readonly Character _character;
-        public Character Character
+        readonly IKillable _entity;
+        public IKillable Entity
         {
-            get { return _character; }
+            get { return _entity; }
         }
 
-        public BasicBehavior(Character character)
+        public BasicBehavior(IKillable entity)
         {
-            _character = character;
+            _entity = entity;
         }
     }
 }

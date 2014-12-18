@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    // Thoughts of a character
-    internal class Think : BasicBehavior
+    public interface IMaterializable
     {
-
+        bool Material { get; set; }
     }
 }

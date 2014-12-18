@@ -12,7 +12,6 @@ namespace ElyseLibrary
         readonly string _name;
         readonly int _x;
         readonly int _y;
-        readonly bool _material;
 
         public int X
         {
@@ -29,17 +28,11 @@ namespace ElyseLibrary
             get { return _name; }
         }
 
-        public bool Material
-        {
-            get { return _material; }
-        }
-
         public Position(string name, int x, int y)
         {
             _name = name;
             _x = x;
             _y = y;
-            _material = false;
         }
     }
 }

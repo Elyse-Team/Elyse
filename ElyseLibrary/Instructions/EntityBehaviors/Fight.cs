@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace ElyseLibrary
 {
     // A selection of combat actions
+    // CHARACTER only
     internal class Fight : BasicBehavior
     {
 
