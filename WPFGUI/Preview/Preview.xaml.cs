@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Elyse.WPFGUI
+namespace Elyse.WPFGUI.Preview
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Preview.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Preview : UserControl
     {
-        public MainWindow()
+        public Preview()
         {
             InitializeComponent();
         }
