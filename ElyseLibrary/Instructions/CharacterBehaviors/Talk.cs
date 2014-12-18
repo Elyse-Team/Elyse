@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    public class Class1
+    // Talk alone or with another character
+    internal class Talk : BasicBehavior
     {
 
     }
