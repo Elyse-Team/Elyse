@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Elyse.WPFGUI
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour TutorialBox.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TutorialBox : UserControl
     {
-        public MainWindow()
+        public TutorialBox()
         {
             InitializeComponent();
         }
