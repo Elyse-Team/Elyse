@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElyseLibrary.EntityBehaviors
+namespace ElyseLibrary
 {
     // A selection of combat actions
     internal class Fight : BasicBehavior
@@ -17,7 +17,7 @@ namespace ElyseLibrary.EntityBehaviors
            set { _strike = value; }
        }
 
-       public Fight(Entity character, string strike)
+       public Fight(Character character, string strike)
          : base(character)
        {
            Strike = strike;
