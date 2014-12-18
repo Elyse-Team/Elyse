@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    public interface IPosition
+    // Talk alone or with another character
+    internal class Talk : BasicBehavior
     {
-        int X { get; set; }
-        int Y { get; set; }
-        string Name { get; set; }
+
     }
 }

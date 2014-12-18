@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElyseLibrary.EntityBehaviors
+namespace ElyseLibrary
 {
     // Thoughts of a character
     internal class Think : BasicBehavior
