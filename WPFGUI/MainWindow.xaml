@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Elyse.WPFGUI"
+        xmlns:Preview="clr-namespace:Elyse.WPFGUI.Preview" x:Name="StoryBox" x:Class="Elyse.WPFGUI.MainWindow"
+        Title="Elyse 2.0" Height="450" Width="625">
+    <Grid>
+        <DockPanel x:Name="MainDock" LastChildFill="False" Margin="0" Background="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
+            <local:StoryBox Margin="0,0,250,168" Width="338" />
+
+            <Preview:Preview Height="419" VerticalAlignment="Top" Width="100"/>
+            <local:TutorialBox Height="141" VerticalAlignment="Top" Width="104" HorizontalAlignment="Left" Margin="0,278,0,0"/>
+
+        </DockPanel>
+
+    </Grid>
+</Window>
