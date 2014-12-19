@@ -1,37 +1,84 @@
-function ElyseCore(commands, callback) {
-    var _self = this;
-    var _cmds = commands;
-    var _pc = -1;
-    var _callback = callback;
+var DEBUG = true;
 
-    function parallel(commands, callback) {
-        var wait = commands.length;
-        for (var pc = 0; pc < commands.length; ++pc) {
-            var c = commands[pc];
-            if (c[0] instanceof Array) {
-                new ElyseCore(c, function () { if (--wait === 0 && callback) callback(); }).run();
-            }
-            else {
-                c[2].push(function () { if (--wait === 0 && callback) callback(); });
-                c[0][c[1]].apply(c[0], c[2]);
-            }
-        }
-    }
+var Elyse = {};
 
-    this.run = function () {
-        if (++_pc >= _cmds.length) {
-            if (_callback) _callback();
-            _callback = null;
-            return;
-        }
-        var c = _cmds[_pc];
-        if (c[0] instanceof Array) {
-            parallel(c, function () { _self.run(); });
-        }
-        else
-        {
-            c[2].push(function () { _self.run(); });
-            c[0][c[1]].apply(c[0], c[2]);
-        }
-    }
+
+Elyse.stage = new PIXI.Stage(0xFFFFFF);
+
+//							 THE GRID
+//
+//		 ______________________1600_______________________
+//		|0,0      |320,0    |640,0    |960,0    |1280,0   |
+//		|         |         |         |         |         |
+//		|         |         |         |         |         |
+//		|         |         |         |         |         |
+//	   9|         |         |         |         |         |
+//	   0|_________|_________|_________|_________|_________|
+//	   0|0,450    |320,450  |640,450  |960,450  |1280,450 |
+//		|         |         |         |         |         |
+//		|         |         |         |         |         |
+//		|         |         |         |         |         |
+//		|         |         |         |         |         |
+//		|_________|_________|_________|_________|_________|
+//
+//
+Elyse.renderer = PIXI.autoDetectRenderer(1600, 900, null, true);
+Elyse.rendererContainer = document.body;
+Elyse.assets = new PIXI.AssetLoader();
+
+if(DEBUG){
+	var grid = new PIXI.Graphics();
+	grid.lineStyle(1, 0xFF0000);
+	grid.drawRect(0, 0, 960, 900);
+	grid.drawRect(320, 0, 960, 900);
+	grid.drawRect(640, 0, 960, 900);
+	grid.drawRect(0, 0, 1600, 450);
+	Elyse.stage.addChild(grid)
 }
+
+
+Elyse.orientation = {
+	LEFT : 1,
+	RIGHT : -1
+};
+
+Elyse.positions = {
+	OUTLEFT : -400,
+	OUTRIGHT : 2000
+};
+
+
+
+Elyse.actions = [];
+
+Elyse.entities = {};
+Elyse.entities.list = [];
+Elyse.entities.add = function(options){
+	var c = new Elyse.Character(Elyse.stage, options);
+	Elyse.entities.list.push(c);
+	return c;
+};
+Elyse.entities.update = function(){
+	var i = Elyse.entities.list.length;
+	while(i-->0){
+		Elyse.entities.list[i].update();
+	}
+}
+
+
+
+Elyse.run = function(){
+
+};
+
+Elyse.rendererContainer.appendChild(Elyse.renderer.view);
+
+
+function animate(){
+	Elyse.entities.update();
+	requestAnimationFrame(animate);
+	Elyse.renderer.render(Elyse.stage);
+}
+
+
+
