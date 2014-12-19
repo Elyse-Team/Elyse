@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool", "Languagetool\Languagetool.csproj", "{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool.Tests", "Languagetool.Tests\Languagetool.Tests.csproj", "{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool.Tests", "Languagetool.Tests\Languagetool.Tests.csproj", "{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseParser", "StanfordParser\ElyseParser.csproj", "{D85DF255-38B7-47B0-9269-E0C873AF4CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseConsole", "ElyseConsole\ElyseConsole.csproj", "{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseLibrary", "ElyseLibrary\ElyseLibrary.csproj", "{72B50E23-E5F0-46B4-B836-26F992EA2B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFGUI", "WPFGUI\WPFGUI.csproj", "{91B0A80D-6047-48E1-BDDF-BD121AC8D508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +21,33 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8307AB2E-58A9-4207-9EEE-8DC39FAFACBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85DF255-38B7-47B0-9269-E0C873AF4CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85DF255-38B7-47B0-9269-E0C873AF4CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85DF255-38B7-47B0-9269-E0C873AF4CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85DF255-38B7-47B0-9269-E0C873AF4CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B50E23-E5F0-46B4-B836-26F992EA2B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B50E23-E5F0-46B4-B836-26F992EA2B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B50E23-E5F0-46B4-B836-26F992EA2B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B50E23-E5F0-46B4-B836-26F992EA2B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B0A80D-6047-48E1-BDDF-BD121AC8D508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B0A80D-6047-48E1-BDDF-BD121AC8D508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B0A80D-6047-48E1-BDDF-BD121AC8D508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B0A80D-6047-48E1-BDDF-BD121AC8D508}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Languagetool\Languagetool.csproj
