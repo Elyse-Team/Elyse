@@ -1,5 +1,6 @@
 ﻿using System;
 using ElyseParser;
+using ElyseLibrary;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace ElyseConsole
         static void Main(string[] args)
         {
             StanfordParser parser = new StanfordParser();
-            System.Console.WriteLine("\nParser Loaded ! FUCK YOU PEOPLEEEEEEE\n");
+            System.Console.WriteLine("\nParser Loaded !\n");
 
             bool on = true;
             while (on)

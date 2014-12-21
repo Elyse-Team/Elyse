@@ -1,13 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool", "Languagetool\Languagetool.csproj", "{FCD3DD29-AF77-4A33-B479-3D0569EA5CD3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languagetool.Tests", "Languagetool.Tests\Languagetool.Tests.csproj", "{EE49EFA1-EF6D-4C90-B929-6E7FC196FDFB}"
 EndProject
-# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseParser", "StanfordParser\ElyseParser.csproj", "{D85DF255-38B7-47B0-9269-E0C873AF4CD7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseConsole", "ElyseConsole\ElyseConsole.csproj", "{68AA11E1-5F42-47EC-A43C-367ED8F2E92B}"

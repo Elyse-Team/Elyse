@@ -8,7 +8,7 @@ namespace ElyseParser
 {
     public class ParserEngine
     {
-        // la classe ou on va concrètement traiter le fichier configXML, le parsing, les AST, les visiteurs et créer la liste d'instructions
+        // la classe ou on va concrètement traiter le le parsing et créer la liste d'instructions
 
     }
 }

@@ -177,6 +177,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ElyseLibrary\ElyseLibrary.csproj">
+      <Project>{72b50e23-e5f0-46b4-b836-26f992ea2b69}</Project>
+      <Name>ElyseLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StanfordParser\ElyseParser.csproj">
       <Project>{d85df255-38b7-47b0-9269-e0c873af4cd7}</Project>
       <Name>ElyseParser</Name>
