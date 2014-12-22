@@ -1,0 +1,21 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ElyseGUI.Views" x:Class="ElyseGUI.Views.Footer" 
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <local:TutorialBox HorizontalAlignment="Stretch" Grid.Column="0" />
+        <Button Style="{StaticResource TransparentStyle}" Grid.Column="1" FontSize="18" Content="{StaticResource btnPlayText}"  Width="Auto" FontFamily="Segoe WP Black" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="17,0"/>
+        <Button  Style="{StaticResource TransparentStyle}" Grid.Column="2" FontSize="18" Content="{StaticResource btnStoryBookText}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Width="Auto" FontFamily="Segoe UI Black" Margin="10,0"/>
+
+    </Grid>
+</UserControl>

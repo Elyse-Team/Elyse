@@ -1,5 +1,4 @@
-﻿using ElyseGUI.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ElyseGUI
+namespace ElyseGUI.Views.Preview
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour CharacterList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CharacterList : UserControl
     {
-        public MainWindow()
+        public CharacterList()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
     }
 }

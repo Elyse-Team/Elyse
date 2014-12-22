@@ -1,5 +1,4 @@
-﻿using ElyseGUI.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ElyseGUI
+namespace ElyseGUI.Views
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Footer.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Footer : UserControl
     {
-        public MainWindow()
+        public Footer()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
     }
 }
