@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Time : Instruction
+    internal class TimeSet : Instruction
     {
         private int _time;
 
@@ -16,7 +16,7 @@ namespace ElyseLibrary
             set { _time = value; }
         }
 
-        public Time(int time)
+        public TimeSet(int time)
         {
             Time = time;
         }

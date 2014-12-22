@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 namespace ElyseLibrary
 {
     [Serializable()]
-    public class SceneBuilder
+    internal class SceneBuilder
     {
         private List<Character> _characters;
         private Background _background;
 
         public List<Character> Characters { get { return _characters; } }
-        public Background Background { get { return _background; } private set { _background = value; } }
+        public Background Background { get { return _background; } set { _background = value; } }
 
         public SceneBuilder()
         {
             _characters = new List<Character>();
-            _background = new Background(Background.Background.None);
+            _background = new Background(Background.BackgroundType.None);
         }
 
         internal void AddCharacter(string name, Character.Gender gender, Character.SkinColor skinColor, Character.ShirtColor shirtColor)
@@ -32,7 +32,7 @@ namespace ElyseLibrary
             _characters.Remove(character);
         }
 
-        internal void SetBackground(Background.Background background)
+        internal void SetBackground(Background.BackgroundType background)
         {
             _background.MyBackground = background;
         }

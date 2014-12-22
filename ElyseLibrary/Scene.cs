@@ -32,8 +32,8 @@ namespace ElyseLibrary
             _positions = new List<Position>();
             _characters = new List<Character>(sceneBuilder.Characters);
 
-            int _height = 2;
-            int _width = 5;
+            _height = 2;
+            _width = 5;
             Background = sceneBuilder.Background;
 
             // définition des positions

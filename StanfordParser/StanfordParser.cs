@@ -6,7 +6,8 @@ using edu.stanford.nlp.parser.lexparser;
 using java.util;
 using System;
 using System.IO;
-using edu.stanford.nlp.pipeline; 
+using edu.stanford.nlp.pipeline;
+using edu.stanford.nlp.ie; 
 
 namespace ElyseParser
 {
@@ -33,9 +34,15 @@ namespace ElyseParser
             var jarRoot = @"B:\Visual Studio Projects\Elyse\StanfordParser\CoreNLP";
 
             // spécifications des modules d'annotations à lancer
-            // Tokenizer - SentenceSplitter - PartOfSpeech - Lemma - Parser
+            // Tokenizer - SentenceSplitter - PartOfSpeech - Lemma - NamedEntityRecognizer - Parser - Coreference
             var props = new Properties();
-            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse");
+            props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+            props.put("ner.model", "B:/Visual Studio Projects/Elyse/StanfordParser/CoreNLP/edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz");
+
+            // Gestion des valeurs numériques et du temps : OFF
+            props.put("ner.applyNumericClassifiers", "false");
+            props.put("ner.useSUTime", "false");
+            props.put("sutime.binders", "0");
 
             // Chargement du fichier de propriétés / Retour au répertoire-racine des modèles
             var curDir = Environment.CurrentDirectory;

@@ -10,6 +10,6 @@ namespace ElyseLibrary
     {
         int X { get; set; }
         int Y { get; set; }
-        string Name { get; set; }
+        string Name { get; }
     }
 }

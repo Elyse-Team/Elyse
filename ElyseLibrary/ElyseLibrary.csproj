@@ -55,7 +55,7 @@
     <Compile Include="Entities\Position.cs" />
     <Compile Include="Instructions\StoryInstructions\BackgroundSet.cs" />
     <Compile Include="Instructions\StoryInstructions\Narrator.cs" />
-    <Compile Include="Instructions\StoryInstructions\Time.cs" />
+    <Compile Include="Instructions\StoryInstructions\TimeSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="SceneBuilder.cs" />

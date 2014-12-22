@@ -8,15 +8,15 @@ namespace ElyseLibrary.Entities
 {
     internal class Background
     {
-        private Background _background;
+        private BackgroundType _background;
 
-        public Background MyBackground
+        public BackgroundType MyBackground
         {
             get { return _background; }
             set { _background = value; }
         }
 
-        public enum Background
+        public enum BackgroundType
         {
             None,
             Beach,
@@ -29,7 +29,7 @@ namespace ElyseLibrary.Entities
             Street
         }
 
-        public Background(Background background = Background.None)
+        public Background(BackgroundType background = BackgroundType.None)
         {
             MyBackground = background;
         }

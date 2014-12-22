@@ -19,8 +19,8 @@ namespace ElyseLibrary
 
         public int Duration
         {
-            get;
-            set;
+            get { return _duration; }
+            set { _duration = value; }
         }
 
         public Narrator(string narration, int duration = 2)
