@@ -1,5 +1,4 @@
 ﻿using System;
-using ElyseParser;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +12,13 @@ namespace ElyseConsole
 
         static void Main(string[] args)
         {
-            StanfordParser parser = new StanfordParser();
+            string path = "B:/Visual Studio Projects";
+            StanfordParserConsole parser = new StanfordParserConsole(path);
             System.Console.WriteLine("\nParser Loaded !\n");
 
             bool on = true;
             while (on)
             {
-
                 System.Console.WriteLine("Enter your sentence...\n");
                 string sentence = System.Console.ReadLine();
                 parser.Parse(sentence);
@@ -32,6 +31,9 @@ namespace ElyseConsole
                     on = false;
                 }
             }
+
+            
+
         }
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Character : IPositionable, IMaterializable, IKillable
+    [Serializable()]
+    public class Character : IPositionable, IMaterializable, IKillable
     {
         // Position
         private bool _material;
@@ -76,19 +77,19 @@ namespace ElyseLibrary
             set { _health = value; }
         }
 
-        internal enum Gender
+        public enum Gender
         {
             Male,
             Female
         }
 
-        internal enum SkinColor
+        public enum SkinColor
         {
             White,
             Black
         }
 
-        internal enum ShirtColor
+        public enum ShirtColor
         {
             Blue,
             Green,
@@ -97,7 +98,7 @@ namespace ElyseLibrary
             Yellow
         }
 
-        internal enum Style
+        public enum Style
         { 
             None,
             Vampire,
@@ -117,7 +118,7 @@ namespace ElyseLibrary
             BlackSuit
         }
 
-        internal enum Health
+        public enum Health
         {
             Alive,
             Bleeding,

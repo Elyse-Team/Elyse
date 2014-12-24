@@ -9,11 +9,13 @@ using System.IO;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.ie; 
 
-namespace ElyseParser
+namespace ElyseConsole
 {
-    public class StanfordParser
+    public class StanfordParserConsole
     {
         readonly StanfordCoreNLP _core;
+
+        // only for ElyseConsole
         private Annotation _annotation;
 
 	    public StanfordCoreNLP Core
@@ -21,6 +23,7 @@ namespace ElyseParser
 		    get { return _core;}
 	    }
 
+        // only for ElyseConsole
         public Annotation Annotation
         {
             get { return _annotation; }
@@ -28,16 +31,16 @@ namespace ElyseParser
         }
 
         // Builder
-        public StanfordParser()
+        public StanfordParserConsole(string elysePath)
         {
             // chemin d'accès aux modèles d'annotations
-            var jarRoot = @"B:\Visual Studio Projects\Elyse\StanfordParser\CoreNLP";
+            string jarRoot = elysePath + "/Elyse/CoreNLP";
 
             // spécifications des modules d'annotations à lancer
             // Tokenizer - SentenceSplitter - PartOfSpeech - Lemma - NamedEntityRecognizer - Parser - Coreference
-            var props = new Properties();
+            Properties props = new Properties();
             props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-            props.put("ner.model", "B:/Visual Studio Projects/Elyse/StanfordParser/CoreNLP/edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz");
+            props.put("ner.model", elysePath + "/Elyse/CoreNLP/edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz");
 
             // Gestion des valeurs numériques et du temps : OFF
             props.put("ner.applyNumericClassifiers", "false");
@@ -45,28 +48,31 @@ namespace ElyseParser
             props.put("sutime.binders", "0");
 
             // Chargement du fichier de propriétés / Retour au répertoire-racine des modèles
-            var curDir = Environment.CurrentDirectory;
+            string curDir = Environment.CurrentDirectory;
             Directory.SetCurrentDirectory(jarRoot);
-            var pipeline = new StanfordCoreNLP(props);
+            StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
             Directory.SetCurrentDirectory(curDir);
 
             _core = pipeline;
         }
 
         // Parsing
-        public void Parse(String text)
+        public Annotation Parse(String text)
         {
             // Annotations
-            var annotation = new Annotation(text);
+            Annotation annotation = new Annotation(text);
             _core.annotate(annotation);
 
+            // only for ElyseConsole
             this.Annotation = annotation;
+
+            return annotation;
         }
 
         // Test Console
         public void TestConsole()
         {
-            using (var stream = new ByteArrayOutputStream())
+            using (ByteArrayOutputStream stream = new ByteArrayOutputStream())
             {
                 _core.prettyPrint(this.Annotation, new PrintWriter(stream));
                 string lines = stream.toString();

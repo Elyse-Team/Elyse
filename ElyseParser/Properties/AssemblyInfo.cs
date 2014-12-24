@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StanfordParser")]
+[assembly: AssemblyTitle("ElyseParser")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StanfordParser")]
+[assembly: AssemblyProduct("ElyseParser")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5dd575c2-89b4-4290-8e9d-150804093fa1")]
+[assembly: Guid("9360b5c9-d3e0-4e87-86ab-543b8ea9ce2d")]
 
 // Version information for an assembly consists of the following four values:
 //

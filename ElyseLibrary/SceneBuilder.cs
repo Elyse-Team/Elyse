@@ -8,33 +8,46 @@ using System.Threading.Tasks;
 namespace ElyseLibrary
 {
     [Serializable()]
-    internal class SceneBuilder
+    public class SceneBuilder
     {
         private List<Character> _characters;
         private Background _background;
+        private string _story;
 
-        public List<Character> Characters { get { return _characters; } }
-        public Background Background { get { return _background; } set { _background = value; } }
+        internal List<Character> Characters { get { return _characters; } }
+        internal Background Background { get { return _background; } set { _background = value; } }
+        internal string Story { get { return _story; } set { _story = value; } }
 
         public SceneBuilder()
         {
             _characters = new List<Character>();
             _background = new Background(Background.BackgroundType.None);
+            _story = "";
         }
 
-        internal void AddCharacter(string name, Character.Gender gender, Character.SkinColor skinColor, Character.ShirtColor shirtColor)
+        public void AddCharacter(string name, Character.Gender gender, Character.SkinColor skinColor, Character.ShirtColor shirtColor)
         {
             _characters.Add(new Character(name, -1, -1, gender, skinColor, shirtColor, Character.Style.None));
         }
 
-        internal void DeleteCharacter(Character character)
+        public void DeleteCharacter(Character character)
         {
             _characters.Remove(character);
         }
 
-        internal void SetBackground(Background.BackgroundType background)
+        public void SetBackground(Background.BackgroundType background)
         {
             _background.MyBackground = background;
+        }
+
+        public void EditStory(string story)
+        {
+            Story = story;
+        }
+
+        public string GetStory()
+        {
+            return Story;
         }
     }
 }
