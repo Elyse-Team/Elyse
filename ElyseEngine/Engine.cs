@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ElyseParser;
 using ElyseLibrary;
 using System.Runtime.Serialization.Formatters.Binary;
+using ElyseRender;
 
 
 namespace ElyseEngine
@@ -16,19 +17,23 @@ namespace ElyseEngine
         private SceneBuilder sceneBuilder;
         private ParserEngine parserEngine;
         private string elysePath;
+        private List<Instruction> storyInstructions;
+        private RenderEngine renderEngine;
 
         public Engine()
         {
             elysePath = "B:/Visual Studio Projects";
             sceneBuilder = new SceneBuilder();
             parserEngine = new ParserEngine(elysePath);
+            storyInstructions = new List<Instruction>();
+            renderEngine = new RenderEngine();
         }
 
         // Lancer l'animation
         public void Play()
         {
-            string story = sceneBuilder.GetStory();
-            parserEngine.Run(story);
+            storyInstructions = parserEngine.Run(sceneBuilder);
+            renderEngine.Run(storyInstructions);
         }
 
         // Sauvegarder le SceneBuilder
@@ -51,6 +56,5 @@ namespace ElyseEngine
             sceneBuilder = (SceneBuilder)formatter.Deserialize(stream);
             if (stream != null) stream.Close();
         }
-
     }
 }

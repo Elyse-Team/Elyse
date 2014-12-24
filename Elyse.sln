@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseEngine", "ElyseEngine\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseParser", "ElyseParser\ElyseParser.csproj", "{D69E63FA-65CE-4D3B-AB7E-C98AB57EACE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseRender", "ElyseRender\ElyseRender.csproj", "{7D10245A-BF61-491E-85DE-E78B6B5686E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{D69E63FA-65CE-4D3B-AB7E-C98AB57EACE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D69E63FA-65CE-4D3B-AB7E-C98AB57EACE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69E63FA-65CE-4D3B-AB7E-C98AB57EACE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

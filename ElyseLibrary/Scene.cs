@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Scene
+    public class Scene
     {
         // Environment
         private List<Position> _positions;
@@ -27,7 +27,7 @@ namespace ElyseLibrary
         public List<Character> Characters { get { return _characters; } }
 
         // Constructeur de la Scene
-        internal Scene(SceneBuilder sceneBuilder)
+        public Scene(SceneBuilder sceneBuilder)
         {
             _positions = new List<Position>();
             _characters = new List<Character>(sceneBuilder.Characters);

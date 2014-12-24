@@ -141,12 +141,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VisitorEntity.cs" />
     <Compile Include="ParserEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StanfordParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ElyseLibrary\ElyseLibrary.csproj">
+      <Project>{72b50e23-e5f0-46b4-b836-26f992ea2b69}</Project>
+      <Name>ElyseLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
