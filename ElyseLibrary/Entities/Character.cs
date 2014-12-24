@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    [Serializable()]
+    [Serializable]
     public class Character : IPositionable, IMaterializable, IKillable
     {
         // Position

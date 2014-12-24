@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary.Entities
 {
-    [Serializable()]
+    [Serializable]
     public class Background
     {
         private BackgroundType _background;

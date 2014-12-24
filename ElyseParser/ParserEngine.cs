@@ -11,18 +11,16 @@ namespace ElyseParser
     public class ParserEngine
     {
         private StanfordParser _parser;
-        private string _story;
         private Annotation _ast;
 
-        public ParserEngine(string story, string elysePath)
+        public ParserEngine(string elysePath)
         {
-            _story = story;
             _parser = new StanfordParser(elysePath);
         }
 
-        public void Run()
+        public void Run(string story)
         {
-            _ast = _parser.Parse(_story);
+            _ast = _parser.Parse(story);
         }
         
        /*

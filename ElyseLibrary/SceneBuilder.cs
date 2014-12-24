@@ -2,19 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    [Serializable()]
+    [Serializable]
     public class SceneBuilder
     {
         private List<Character> _characters;
         private Background _background;
         private string _story;
 
-        internal List<Character> Characters { get { return _characters; } }
+        internal List<Character> Characters { get { return _characters; } set { _characters = value; } }
         internal Background Background { get { return _background; } set { _background = value; } }
         internal string Story { get { return _story; } set { _story = value; } }
 
