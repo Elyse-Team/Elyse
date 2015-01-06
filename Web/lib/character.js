@@ -26,8 +26,8 @@ Elyse.Character = function(stage, options){
 
 	this.orientation = options.orientation || Elyse.orientation.LEFT;
 
-	this.displayObject.x = options.x || (320-this.displayObject.width)/2;
-	this.displayObject.y = options.y || 450-this.displayObject.height;
+	this.displayObject.x = ((options.x-this.displayObject.width)/2) || (320-this.displayObject.width)/2;
+	this.displayObject.y = (options.y-this.displayObject.height) || (450-this.displayObject.height);
 
 
 	Object.defineProperty(this, "x", {
@@ -40,6 +40,14 @@ Elyse.Character = function(stage, options){
     	set: function(value) { this.displayObject.y = value}
   	});
 
+
+  	this.isMoving = false;
+  	this.target = {
+  		x : this.x,
+  		y : this.y
+  	}
+
+
 	stage.addChild(this.displayObject);
 }
 
@@ -50,15 +58,15 @@ Elyse.Character.heads = {
 		path : 'smile.png',
 		dx : 0,
 		dy : 0,
-		scale : 0.7
+		scale : 0.5
 	}
 }
 
 Elyse.Character.bodies = {
 	blue : {
 		path : 'body-blue.png',
-		dx : 0,
-		dy : 0,
+		dx : 30,
+		dy : 180,
 		scale : 0.7
 	}
 }
@@ -66,11 +74,20 @@ Elyse.Character.bodies = {
 //Methods
 
 Elyse.Character.prototype.update = function(callback){
-	
+	if(this.isMoving){
+		this.x = this.x+(this.target.x-this.x > 10 ?10:this.target.x-this.x > 10);
+		this.y = this.y+(this.target.y-this.y > 10 ?10:this.target.y-this.y > 10);
+		if(this.x === this.target.x && this.y === this.target.y){
+			this.isMoving = false;
+		}
+	}
 }
 
-Elyse.Character.prototype.move = function(){
-	//Not implemented method
+Elyse.Character.prototype.move = function(x, y, callback){
+	this.target.x = x;
+	this.target.y = y;
+	callback();
+	this.isMoving = true;
 	return this;
 }
 
