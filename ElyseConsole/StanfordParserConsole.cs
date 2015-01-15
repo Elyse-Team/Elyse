@@ -7,7 +7,12 @@ using java.util;
 using System;
 using System.IO;
 using edu.stanford.nlp.pipeline;
-using edu.stanford.nlp.ie; 
+using edu.stanford.nlp.ie;
+using System.Collections.Generic;
+using edu.stanford.nlp.util;
+using edu.stanford.nlp.semgraph;
+using edu.stanford.nlp.dcoref;
+
 
 namespace ElyseConsole
 {
@@ -67,6 +72,31 @@ namespace ElyseConsole
             this.Annotation = annotation;
 
             return annotation;
+        }
+
+
+        // Morph AST
+        public void MorphAST()
+        {
+            ArrayList sentences = this.Annotation.get(new CoreAnnotations.SentencesAnnotation().getClass()) as ArrayList;
+    
+            foreach(CoreMap sentence in sentences)
+            {
+                // liste de tokens
+                var tokens = sentence.get(new CoreAnnotations.TokensAnnotation().getClass()) as List;
+                
+                for (var i = 0; i < tokens.size(); i++)
+                {
+                    var token = tokens.get(i) as CoreLabel;
+                    var text = token.get(new CoreAnnotations.TextAnnotation().getClass());
+                    var pos = token.get(new CoreAnnotations.PartOfSpeechAnnotation().getClass());
+                    var lemma = token.get(new CoreAnnotations.LemmaAnnotation().getClass());
+                    var ner = token.get(new CoreAnnotations.NamedEntityTagAnnotation().getClass());
+
+                    System.Console.WriteLine("- text : " + text + " - pos : " + pos + " - lemma : " + lemma + " - ner : " + ner + " -");
+                }
+                System.Console.WriteLine("\n");
+            }
         }
 
         // Test Console

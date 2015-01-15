@@ -23,6 +23,7 @@ namespace ElyseConsole
                 string sentence = System.Console.ReadLine();
                 parser.Parse(sentence);
                 parser.TestConsole();
+                parser.MorphAST();
 
                 System.Console.WriteLine("\nParse another sentence ? <y>es - <n>o");
                 string response = System.Console.ReadLine();
@@ -30,9 +31,7 @@ namespace ElyseConsole
                 {
                     on = false;
                 }
-            }
-
-            
+            }   
 
         }
     }

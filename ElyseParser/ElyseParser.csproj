@@ -145,6 +145,7 @@
     <Compile Include="ParserEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StanfordParser.cs" />
+    <Compile Include="VisitorMorph.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
