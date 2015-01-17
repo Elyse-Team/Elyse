@@ -29,11 +29,24 @@ namespace ElyseGUI.Models
             }
         }
 
-        public bool canEdit;
+        private bool _canEdit;
+
+        public bool canEdit
+        {
+            get
+            {
+                return _canEdit;
+            }
+            set
+            {
+                _canEdit = value;
+                OnPropertyChanged("canEdit");
+            }
+        }
 
         public bool canPlay
         {
-            get { return !String.IsNullOrEmpty(_text)  && canEdit; }
+            get { return !String.IsNullOrEmpty(_text)  && _canEdit; }
         }
 
         public Story()
