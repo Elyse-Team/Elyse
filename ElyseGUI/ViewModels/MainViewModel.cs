@@ -16,7 +16,15 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        public ICommand PlayCommand
+        public TutorialBox tutorialBox
+        {
+            get;
+            private set;
+        }
+
+        public bool isPlaying { get; private set; }
+
+        public Commands.PlayCommand PlayCommand
         {
             get;
             private set;
@@ -24,18 +32,50 @@ namespace ElyseGUI.ViewModels
         public MainViewModel()
         {
             story = new Story();
+            tutorialBox = new TutorialBox();
             PlayCommand = new Commands.PlayCommand(this);
+            tutorialBox.msg = "Type your text";
+            setPlaying(false);
         }
 
         public bool CanPlayStory { 
-            get { 
-                return !String.IsNullOrEmpty(story.text); 
+            get {
+                return story.canPlay;
             } 
         }
 
         internal void Play()
         {
-            story.text = "clicked";
+            System.Diagnostics.Debug.WriteLine("playing start ==========================================");
+            setPlaying(true);
+            tutorialBox.msg = "Loading..";
+
+            new Action(async () =>
+            {
+                System.Diagnostics.Debug.WriteLine("checking start");
+                try
+                {
+                    await story.FindSpellCheckerErrors();
+                }
+                catch(Elyse.Languagetool.Exception e)
+                {
+                    System.Windows.MessageBox.Show("Languagetool: "+e.Message);
+                    System.Diagnostics.Debug.WriteLine("Languagetool exception: "+e.Message);
+                }
+                setPlaying(false);
+                System.Diagnostics.Debug.WriteLine("checking done ");
+
+                tutorialBox.msg = story.hasError ? "Have errors !!!" : "no errors!";
+                PlayCommand.TriggerChange();
+            }).Invoke();
         }
+
+        private void setPlaying(bool playing)
+        {
+            isPlaying = playing;
+            story.canEdit = !playing;
+        }
+
+        
     }
 }

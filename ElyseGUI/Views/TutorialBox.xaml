@@ -11,6 +11,6 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0" Source="Images/help_perso.png" />
-        <TextBlock Grid.Column="1" Background="#FCCA0A" Foreground="White" TextWrapping="Wrap" Text="Maybe we have an error here" FontSize="18" TextAlignment="Center" VerticalAlignment="center" FontWeight="Bold"/>
+        <TextBlock Grid.Column="1" Background="#FCCA0A" Foreground="White" TextWrapping="Wrap" Text="{Binding tutorialBox.msg}" FontSize="18" TextAlignment="Center" VerticalAlignment="center" FontWeight="Bold"/>
     </Grid>
 </UserControl>

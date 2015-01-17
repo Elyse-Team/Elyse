@@ -9,7 +9,7 @@
 
     
     <Grid >
-        <TextBox Style="{StaticResource placeHolder}" Tag="{StaticResource storyBoxPlaceholder}" 
+        <TextBox IsEnabled="{Binding story.canEdit}" Style="{StaticResource placeHolder}" Tag="{StaticResource storyBoxPlaceholder}" 
                  Background="#ffffff" Foreground="#ffffff" Margin="0" TextWrapping="Wrap" 
                  Text="{Binding story.text, UpdateSourceTrigger=PropertyChanged}" FontFamily="Segoe UI Semibold" FontWeight="Bold" 
                  FontSize="18" AcceptsReturn="True" Padding="10">

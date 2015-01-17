@@ -31,5 +31,10 @@ namespace ElyseGUI.Commands
         {
             _mainViewModel.Play();
         }
+
+        public void TriggerChange()
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
     }
 }

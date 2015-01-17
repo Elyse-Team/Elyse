@@ -55,6 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\PlayCommand.cs" />
     <Compile Include="Models\Story.cs" />
+    <Compile Include="Models\TutorialBox.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
