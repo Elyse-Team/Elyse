@@ -65,7 +65,11 @@ namespace ElyseGUI.ViewModels
                 setPlaying(false);
                 System.Diagnostics.Debug.WriteLine("checking done ");
 
-                tutorialBox.msg = story.hasError ? "Have errors !!!" : "no errors!";
+               // tutorialBox.msg = story.hasError ? "Have errors !!!" : "no errors!";
+                if(story.hasError)
+                {
+                    tutorialBox.SetMsgFromErrors(story.spellCheckerErrors);
+                }
                 PlayCommand.TriggerChange();
             }).Invoke();
         }
