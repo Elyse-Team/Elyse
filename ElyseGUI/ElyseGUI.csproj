@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\PlayCommand.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\Footer.xaml.cs">
@@ -174,6 +175,7 @@
   <ItemGroup>
     <Resource Include="Images\arrow_right.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

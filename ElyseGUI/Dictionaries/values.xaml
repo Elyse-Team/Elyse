@@ -6,7 +6,7 @@
     <system:String x:Key="slogan">Génère une animation à partir de tes phrases</system:String>
     <system:String x:Key="storyBoxPlaceholder">Tape une phrase en anglais</system:String>
     <system:String x:Key="btnPlayText">Play</system:String>
-    <system:String x:Key="btnStoryBookText">StoryBool</system:String>
+    <system:String x:Key="btnStoryBookText">StoryBook</system:String>
     
     <system:String x:Key="previewEmptyText">Empty</system:String>
 </ResourceDictionary>

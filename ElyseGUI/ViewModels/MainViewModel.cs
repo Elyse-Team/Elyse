@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ElyseGUI.Models;
+using System.Windows.Input;
 
 namespace ElyseGUI.ViewModels
 {
@@ -15,17 +16,26 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
+        public ICommand PlayCommand
+        {
+            get;
+            private set;
+        }
         public MainViewModel()
         {
             story = new Story();
-            //story.text = "changement";
+            PlayCommand = new Commands.PlayCommand(this);
         }
 
-        public void SaveTextChanges()
+        public bool CanPlayStory { 
+            get { 
+                return !String.IsNullOrEmpty(story.text); 
+            } 
+        }
+
+        internal void Play()
         {
-
+            story.text = "clicked";
         }
-
-
     }
 }

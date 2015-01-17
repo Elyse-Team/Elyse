@@ -8,7 +8,7 @@ using Elyse.Languagetool;
 
 namespace ElyseGUI.Models
 {
-    class Story : INotifyPropertyChanged
+    internal class Story
     {
         public List<Error> syntaxErrors;
         private string _text;
@@ -27,7 +27,6 @@ namespace ElyseGUI.Models
             set
             {
                 _text = value;
-                OnPropertyChanged("text");
             }
         }
 
@@ -35,16 +34,6 @@ namespace ElyseGUI.Models
         public Story()
         {
 
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string p)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            if (handler == null) return;
-            handler(this, new PropertyChangedEventArgs(p));
         }
     }
 }
