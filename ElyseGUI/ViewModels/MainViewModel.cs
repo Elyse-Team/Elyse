@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace ElyseGUI.ViewModels
 {
-    class MainViewModel
+    internal class MainViewModel
     {
         public Story story
         {
