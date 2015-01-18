@@ -25,6 +25,12 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
+        public Preview preview
+        {
+            get;
+            private set;
+        }
+
         public TutorialBox tutorialBox
         {
             get;
@@ -45,18 +51,39 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
+        public ICommand OpenProfileCommand
+        {
+            get;
+            private set;
+        }
+
+        public List<Models.Character> CharacterList
+        {
+            get;
+            private set;
+        }
+
         private Window _storyBookWindow;
+        private ProfileViewModel _profileViewModel;
 
         public MainViewModel()
         {
             story = new Story();
             storyBook = new StoryBook();
             tutorialBox = new TutorialBox();
+            preview = new Preview();
+
             PlayCommand = new Commands.PlayCommand(this);
+            OpenProfileCommand = new Commands.OpenProfileCommand(this);
             OpenStoryBookCommand = new Commands.OpenStoryBookCommand(this);
 
             tutorialBox.msg = "Type your text";
             setPlaying(false);
+
+            CharacterList = new List<Models.Character>();
+            CharacterList.Add(new Models.Character());
+            CharacterList.Add(new Models.Character());
+            CharacterList.Add(new Models.Character());
         }
 
         public bool CanPlayStory { 
@@ -101,6 +128,17 @@ namespace ElyseGUI.ViewModels
             isPlaying = playing;
             story.canEdit = !playing;
         }
+
+        public void OpenProfileWindow()
+        {
+            if(_profileViewModel == null)
+            {
+                _profileViewModel = new ProfileViewModel(this);
+            }
+
+            _profileViewModel.OpenWindow();
+        }
+
 
         public void OpenStoryBookWindow()
         {

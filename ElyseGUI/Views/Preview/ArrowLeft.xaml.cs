@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ElyseGUI.Views.Preview
 {
     /// <summary>
-    /// Logique d'interaction pour Arrows.xaml
+    /// Logique d'interaction pour ArrowLeft.xaml
     /// </summary>
-    public partial class Arrows : UserControl
+    public partial class ArrowLeft : UserControl
     {
-        public Arrows()
+        public ArrowLeft()
         {
             InitializeComponent();
         }

@@ -53,12 +53,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\OpenProfileCommand.cs" />
     <Compile Include="Commands\OpenStoryBookCommand.cs" />
     <Compile Include="Commands\PlayCommand.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Preview.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="Models\StoryBook.cs" />
     <Compile Include="Models\TutorialBox.cs" />
+    <Compile Include="ProfileWindow.xaml.cs">
+      <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\StoryBookViewModel.cs" />
     <Compile Include="Views\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
@@ -66,8 +73,14 @@
     <Compile Include="Views\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Preview\Arrows.xaml.cs">
-      <DependentUpon>Arrows.xaml</DependentUpon>
+    <Compile Include="Views\Preview\ArrowLeft.xaml.cs">
+      <DependentUpon>ArrowLeft.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Preview\ArrowRight.xaml.cs">
+      <DependentUpon>ArrowRight.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Preview\Character.xaml.cs">
+      <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Preview\CharacterList.xaml.cs">
       <DependentUpon>CharacterList.xaml</DependentUpon>
@@ -107,6 +120,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Footer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,7 +132,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Preview\Arrows.xaml">
+    <Page Include="Views\Preview\ArrowLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Preview\ArrowRight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Preview\Character.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,7 +211,45 @@
   <ItemGroup>
     <Resource Include="Images\arrow_right.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\bodies\Body-left-alien.png" />
+    <Resource Include="Images\bodies\Body-left-batman.png" />
+    <Resource Include="Images\bodies\Body-left-clown.png" />
+    <Resource Include="Images\bodies\Body-left-cramp.png" />
+    <Resource Include="Images\bodies\Body-left-punk.png" />
+    <Resource Include="Images\bodies\Body-left-smocking-black.png" />
+    <Resource Include="Images\bodies\Body-left-smocking-white.png" />
+    <Resource Include="Images\bodies\Body-left-trucker.png" />
+    <Resource Include="Images\bodies\Body-left-vampire.png" />
+    <Resource Include="Images\bodies\Body-left-werewolf.png" />
+    <Resource Include="Images\bodies\Body-right-alien.png" />
+    <Resource Include="Images\bodies\Body-right-batman.png" />
+    <Resource Include="Images\bodies\Body-right-clown.png" />
+    <Resource Include="Images\bodies\Body-right-cramp.png" />
+    <Resource Include="Images\bodies\Body-right-punk.png" />
+    <Resource Include="Images\bodies\Body-right-smocking-black.png" />
+    <Resource Include="Images\bodies\Body-right-smocking-white.png" />
+    <Resource Include="Images\bodies\Body-right-trucker.png" />
+    <Resource Include="Images\bodies\Body-right-vampire.png" />
+    <Resource Include="Images\bodies\Body-right-werewolf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Profile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heads\head-left-batman.png" />
+    <Resource Include="Images\heads\head-left-cramp.png" />
+    <Resource Include="Images\heads\head-left-monocle.png" />
+    <Resource Include="Images\heads\head-left-trucker.png" />
+    <Resource Include="Images\heads\head-left-vampire.png" />
+    <Resource Include="Images\heads\head-left-werewolf.png" />
+    <Resource Include="Images\heads\head-right-batman.png" />
+    <Resource Include="Images\heads\head-right-cramp.png" />
+    <Resource Include="Images\heads\head-right-monocle.png" />
+    <Resource Include="Images\heads\head-right-trucker.png" />
+    <Resource Include="Images\heads\head-right-vampire.png" />
+    <Resource Include="Images\heads\head-right-werewolf.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,7 +8,6 @@
 
     <Grid Background="#19AAD9">
         <Grid.ColumnDefinitions>
-
             <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="18*"/>
         </Grid.ColumnDefinitions>

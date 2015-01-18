@@ -7,6 +7,19 @@
              xmlns:Preview="clr-namespace:ElyseGUI.Views.Preview"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="60,61,0,0" VerticalAlignment="Top" Width="100"/>
+
+ 
+        <ItemsControl ItemsSource="{Binding CharacterList}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Preview:Character></Preview:Character>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </UserControl>
