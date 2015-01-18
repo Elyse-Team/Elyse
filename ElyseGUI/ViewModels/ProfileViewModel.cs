@@ -8,7 +8,6 @@ namespace ElyseGUI.ViewModels
 {
     internal class ProfileViewModel
     {
-        private ProfileWindow _window;
         private MainViewModel _mainViewModel;
         public Models.Character Character
         {
