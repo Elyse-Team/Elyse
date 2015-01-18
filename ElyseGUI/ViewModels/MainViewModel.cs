@@ -129,14 +129,18 @@ namespace ElyseGUI.ViewModels
             story.canEdit = !playing;
         }
 
+        private ProfileWindow _window;
         public void OpenProfileWindow(Models.Character character)
         {
-            if(_profileViewModel == null)
+            if (_window != null)
             {
-                _profileViewModel = new ProfileViewModel(this);
+                _window.Focus();
+                return;
             }
 
-            _profileViewModel.OpenWindow(character);
+            _window = new ProfileWindow();
+            _window.DataContext = new ProfileViewModel(this, character);
+            _window.Show();
         }
 
 

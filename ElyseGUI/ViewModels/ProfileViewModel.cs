@@ -16,25 +16,10 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        public ProfileViewModel(MainViewModel mainViewModel)
-        {
-            _mainViewModel = mainViewModel;
-        }
-
-        public void OpenWindow(Models.Character character)
+        public ProfileViewModel(MainViewModel mainViewModel, Models.Character character)
         {
             Character = character;
-
-            if( _window != null)
-            {
-                _window.Focus();
-                return;
-            }
-
-            
-            _window = new ProfileWindow();
-            _window.DataContext = this;
-            _window.Show();
+            _mainViewModel = mainViewModel;
         }
     }
 }
