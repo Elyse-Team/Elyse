@@ -5,12 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using ElyseGUI.Models;
 using System.Windows.Input;
+using System.Windows;
+using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace ElyseGUI.ViewModels
 {
     internal class MainViewModel
     {
         public Story story
+        {
+            get;
+            private set;
+        }
+
+        public StoryBook storyBook
         {
             get;
             private set;
@@ -29,11 +38,23 @@ namespace ElyseGUI.ViewModels
             get;
             private set;
         }
+
+        public ICommand OpenStoryBookCommand
+        {
+            get;
+            private set;
+        }
+
+        private Window _storyBookWindow;
+
         public MainViewModel()
         {
             story = new Story();
+            storyBook = new StoryBook();
             tutorialBox = new TutorialBox();
             PlayCommand = new Commands.PlayCommand(this);
+            OpenStoryBookCommand = new Commands.OpenStoryBookCommand(this);
+
             tutorialBox.msg = "Type your text";
             setPlaying(false);
         }
@@ -61,6 +82,7 @@ namespace ElyseGUI.ViewModels
                 {
                     System.Windows.MessageBox.Show("Languagetool: "+e.Message);
                     System.Diagnostics.Debug.WriteLine("Languagetool exception: "+e.Message);
+                    tutorialBox.msg = "Sorry but there is a little problem";
                 }
                 setPlaying(false);
                 System.Diagnostics.Debug.WriteLine("checking done ");
@@ -80,6 +102,40 @@ namespace ElyseGUI.ViewModels
             story.canEdit = !playing;
         }
 
-        
+        public void OpenStoryBookWindow()
+        {
+            if (_storyBookWindow != null)
+            {
+                _storyBookWindow.Focus();
+                return;
+            }
+
+            OnStoryBookChange onChange = new OnStoryBookChange(OnStoryBookChange);
+            OnStoryBookClose onClose = new OnStoryBookClose(OnStoryBookClose);
+
+            _storyBookWindow = new StoryBookWindow(onChange, onClose);
+            
+            _storyBookWindow.Show();
+        }
+
+        public void OnStoryBookChange(string text)
+        {
+            var file = storyBook.GetPathFromSubstring(text);
+            story.text = storyBook.GetFileContent(file);
+            _storyBookWindow.Close();
+        }
+
+        public void OnStoryBookClose()
+        {
+            _storyBookWindow = null;
+        }
+
+        public void Closing(object sender, CancelEventArgs e)
+        {            
+            if(!story.isEmpty && !storyBook.IsExists(story))
+            {
+                storyBook.Save(story);
+            }
+        }
     }
 }

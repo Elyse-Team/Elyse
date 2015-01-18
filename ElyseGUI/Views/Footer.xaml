@@ -15,7 +15,7 @@
 
         <local:TutorialBox HorizontalAlignment="Stretch" Grid.Column="0" />
         <Button Command="{Binding PlayCommand}" Style="{StaticResource TransparentStyle}" Grid.Column="1" FontSize="18" Content="{StaticResource btnPlayText}"  Width="Auto" FontFamily="Segoe WP Black" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="17,0"/>
-        <Button  Style="{StaticResource TransparentStyle}" Grid.Column="2" FontSize="18" Content="{StaticResource btnStoryBookText}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Width="Auto" FontFamily="Segoe UI Black" Margin="10,0"/>
+        <Button Command="{Binding OpenStoryBookCommand}" Style="{StaticResource TransparentStyle}" Grid.Column="2" FontSize="18" Content="{StaticResource btnStoryBookText}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Width="Auto" FontFamily="Segoe UI Black" Margin="10,0"/>
 
     </Grid>
 </UserControl>

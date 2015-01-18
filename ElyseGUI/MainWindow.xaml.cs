@@ -1,6 +1,7 @@
 ﻿using ElyseGUI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,15 +17,20 @@ using System.Windows.Shapes;
 
 namespace ElyseGUI
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
+    public delegate void OnStoryBookChange(string file);
+    public delegate void OnStoryBookClose();
+
     public partial class MainWindow : Window
     {
+        private MainViewModel _vm;
+
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            _vm = new MainViewModel();
+            DataContext = _vm;
+
+            Closing += _vm.Closing;
         }
     }
 }

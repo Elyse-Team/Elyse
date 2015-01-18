@@ -46,7 +46,12 @@ namespace ElyseGUI.Models
 
         public bool canPlay
         {
-            get { return !String.IsNullOrEmpty(_text)  && _canEdit; }
+            get { return !isEmpty && _canEdit; }
+        }
+
+        public bool isEmpty
+        {
+            get { return String.IsNullOrWhiteSpace(_text);  }
         }
 
         public Story()
