@@ -51,12 +51,6 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        public ICommand OpenProfileCommand
-        {
-            get;
-            private set;
-        }
-
         public List<Models.Character> CharacterList
         {
             get;
@@ -64,7 +58,6 @@ namespace ElyseGUI.ViewModels
         }
 
         private Window _storyBookWindow;
-        private ProfileViewModel _profileViewModel;
 
         public MainViewModel()
         {
@@ -129,18 +122,23 @@ namespace ElyseGUI.ViewModels
             story.canEdit = !playing;
         }
 
-        private ProfileWindow _window;
+        public ICommand OpenProfileCommand
+        {
+            get;
+            private set;
+        }
+        private ProfileWindow _profileWindow;
         public void OpenProfileWindow(Models.Character character)
         {
-            if (_window != null)
+            if (_profileWindow != null)
             {
-                _window.Focus();
+                _profileWindow.Focus();
                 return;
             }
 
-            _window = new ProfileWindow();
-            _window.DataContext = new ProfileViewModel(this, character);
-            _window.Show();
+            _profileWindow = new ProfileWindow();
+            _profileWindow.DataContext = new ProfileViewModel(this, character);
+            _profileWindow.Show();
         }
 
 
