@@ -29,7 +29,7 @@ namespace ElyseGUI.Commands
 
         public void Execute(object parameter)
         {
-            _mainViewModel.OpenProfileWindow();
+            _mainViewModel.OpenProfileWindow((Models.Character) parameter);
         }
     }
 }

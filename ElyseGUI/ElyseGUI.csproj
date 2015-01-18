@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,6 +95,9 @@
     </Compile>
     <Compile Include="StoryBookWindow.xaml.cs">
       <DependentUpon>StoryBookWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile\Character.xaml.cs">
+      <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StoryBox.xaml.cs">
       <DependentUpon>StoryBox.xaml</DependentUpon>
@@ -157,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StoryBookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Profile\Character.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,9 +242,7 @@
     <Resource Include="Images\bodies\Body-right-vampire.png" />
     <Resource Include="Images\bodies\Body-right-werewolf.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Profile\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\heads\head-left-batman.png" />
     <Resource Include="Images\heads\head-left-cramp.png" />

@@ -8,7 +8,7 @@
     <Grid>
         <Grid.InputBindings>
             <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.OpenProfileCommand,
-         RelativeSource={RelativeSource AncestorType=WrapPanel}}" />
+         RelativeSource={RelativeSource AncestorType=WrapPanel}}" CommandParameter="{Binding}" />
         </Grid.InputBindings>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
