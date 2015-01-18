@@ -45,11 +45,7 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        public ICommand OpenStoryBookCommand
-        {
-            get;
-            private set;
-        }
+
 
         public List<Models.Character> CharacterList
         {
@@ -57,7 +53,6 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        private Window _storyBookWindow;
 
         public MainViewModel()
         {
@@ -142,6 +137,12 @@ namespace ElyseGUI.ViewModels
         }
 
 
+        public ICommand OpenStoryBookCommand
+        {
+            get;
+            private set;
+        }
+        private Window _storyBookWindow;
         public void OpenStoryBookWindow()
         {
             if (_storyBookWindow != null)
@@ -154,7 +155,7 @@ namespace ElyseGUI.ViewModels
             OnStoryBookClose onClose = new OnStoryBookClose(OnStoryBookClose);
 
             _storyBookWindow = new StoryBookWindow(onChange, onClose);
-            
+            _storyBookWindow.DataContext = new StoryBookViewModel();
             _storyBookWindow.Show();
         }
 

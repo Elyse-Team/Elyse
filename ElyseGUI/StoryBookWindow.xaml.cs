@@ -29,7 +29,6 @@ namespace ElyseGUI
             InitializeComponent();
             _onClose = onClose;
             _onChange = onChange;
-            DataContext = new StoryBookViewModel();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
