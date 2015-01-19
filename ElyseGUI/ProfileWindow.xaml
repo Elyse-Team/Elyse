@@ -16,7 +16,16 @@
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
 
-        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1"></Preview:ArrowLeft>
+        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1">
+            <CommandBinding Command="ApplicationCommands.Close"
+                    Executed="CloseCommandHandler"
+                    CanExecute="CanExecuteHandler"
+                    />
+            <Preview:ArrowLeft.InputBindings>
+                
+                <MouseBinding Gesture="LeftClick" Command="{Binding ChangeProfileCommand}" CommandTarget="PreviousHead" />
+            </Preview:ArrowLeft.InputBindings>
+        </Preview:ArrowLeft>
         <Preview:ArrowLeft Grid.Column="0" Grid.Row="2"></Preview:ArrowLeft>
 
         <Profile:Character Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"></Profile:Character>
