@@ -20,15 +20,19 @@
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1" Padding="20">
+        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1" Padding="10">
             <Preview:ArrowLeft.InputBindings>
-                <MouseBinding Gesture="LeftClick" Command="{Binding Path=PreviousPreviewBackgroundCommand}"/>
+                <MouseBinding Gesture="LeftClick" Command="{Binding Path=DataContext.PreviousPreviewBackgroundCommand, 
+                              RelativeSource={RelativeSource Mode=FindAncestor, 
+                                              AncestorType={x:Type UserControl}}}"/>
             </Preview:ArrowLeft.InputBindings>
         </Preview:ArrowLeft>
         <Preview:CharacterList Grid.Column="1" Grid.Row="1"></Preview:CharacterList>
-        <Preview:ArrowRight Grid.Column="2" Grid.Row="1" Padding="20">
+        <Preview:ArrowRight Grid.Column="2" Grid.Row="1" Padding="10">
             <Preview:ArrowRight.InputBindings>
-                <MouseBinding Gesture="LeftClick" Command="{Binding Path=PreviousPreviewBackgroundCommand}"/>
+                <MouseBinding Gesture="LeftClick" Command="{Binding Path=DataContext.NextPreviewBackgroundCommand, 
+                              RelativeSource={RelativeSource Mode=FindAncestor, 
+                                              AncestorType={x:Type UserControl}}}"/>
             </Preview:ArrowRight.InputBindings>
         </Preview:ArrowRight>
 

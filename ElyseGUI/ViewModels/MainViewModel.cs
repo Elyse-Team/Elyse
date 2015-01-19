@@ -68,7 +68,6 @@ namespace ElyseGUI.ViewModels
                 if (_previousPreviewBackground == null)
                 {
                     _previousPreviewBackground = new Commands.RelayCommand(
-                        //param => _changePreviewCommands.PreviousBackground(),
                         param => this.PreviousPreviewBackground(),
                         param => true
                     );
@@ -85,7 +84,7 @@ namespace ElyseGUI.ViewModels
                 if (_nextPreviewBackground == null)
                 {
                     _nextPreviewBackground = new Commands.RelayCommand(
-                        param => _changePreviewCommands.PreviousBackground(),
+                        param => this.NextPreviewBackground(),
                         param => true
                     );
                 }
@@ -168,6 +167,7 @@ namespace ElyseGUI.ViewModels
 
         public void PreviousPreviewBackground()
         {
+            System.Diagnostics.Debug.WriteLine("PreviousPreviewBackground previeww background");
             CurrentBackground -= 1;
             if (CurrentBackground < 1)
             {
@@ -175,6 +175,7 @@ namespace ElyseGUI.ViewModels
             }
 
             preview.backgroundImage = Images.Backgrounds[CurrentBackground];
+            System.Diagnostics.Debug.WriteLine(Images.Backgrounds[CurrentBackground]);
         }
 
         private void setPlaying(bool playing)
