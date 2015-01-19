@@ -16,13 +16,13 @@
             <ColumnDefinition Width="15*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="70*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1"></Preview:ArrowLeft>
+        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1" Padding="20"></Preview:ArrowLeft>
         <Preview:CharacterList Grid.Column="1" Grid.Row="1"></Preview:CharacterList>
-        <Preview:ArrowRight Grid.Column="2" Grid.Row="1"></Preview:ArrowRight>
+        <Preview:ArrowRight Grid.Column="2" Grid.Row="1" Padding="20"></Preview:ArrowRight>
 
     </Grid>
 </UserControl>

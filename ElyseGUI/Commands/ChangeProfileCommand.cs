@@ -32,26 +32,24 @@ namespace ElyseGUI.Commands
             
         }
 
-        public void PreviousHead(object parameter)
+        public void PreviousHead()
         {
-            System.Diagnostics.Debug.WriteLine("previous head");
+            _profileViewModel.PreviousHead();
         }
 
-        public void NextHead(object parameter)
+        public void NextHead()
         {
-            System.Diagnostics.Debug.WriteLine("next head");
-
+            _profileViewModel.NextHead();
         }
 
-        public void PreviousBody(object parameter)
+        public void PreviousBody()
         {
-            System.Diagnostics.Debug.WriteLine("previous body");
-
+            _profileViewModel.PreviousBody();
         }
 
-        public void NextBody(object parameter)
+        public void NextBody()
         {
-            System.Diagnostics.Debug.WriteLine("previous body");
+            _profileViewModel.NextBody();
 
         }
     }

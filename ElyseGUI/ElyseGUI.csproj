@@ -55,10 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ChangeProfileCommand.cs" />
     <Compile Include="Commands\OpenProfileCommand.cs" />
     <Compile Include="Commands\OpenStoryBookCommand.cs" />
     <Compile Include="Commands\PlayCommand.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterParts.cs" />
     <Compile Include="Models\Preview.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="Models\StoryBook.cs" />
@@ -231,16 +234,6 @@
     <Resource Include="Images\bodies\Body-left-trucker.png" />
     <Resource Include="Images\bodies\Body-left-vampire.png" />
     <Resource Include="Images\bodies\Body-left-werewolf.png" />
-    <Resource Include="Images\bodies\Body-right-alien.png" />
-    <Resource Include="Images\bodies\Body-right-batman.png" />
-    <Resource Include="Images\bodies\Body-right-clown.png" />
-    <Resource Include="Images\bodies\Body-right-cramp.png" />
-    <Resource Include="Images\bodies\Body-right-punk.png" />
-    <Resource Include="Images\bodies\Body-right-smocking-black.png" />
-    <Resource Include="Images\bodies\Body-right-smocking-white.png" />
-    <Resource Include="Images\bodies\Body-right-trucker.png" />
-    <Resource Include="Images\bodies\Body-right-vampire.png" />
-    <Resource Include="Images\bodies\Body-right-werewolf.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -250,12 +243,6 @@
     <Resource Include="Images\heads\head-left-trucker.png" />
     <Resource Include="Images\heads\head-left-vampire.png" />
     <Resource Include="Images\heads\head-left-werewolf.png" />
-    <Resource Include="Images\heads\head-right-batman.png" />
-    <Resource Include="Images\heads\head-right-cramp.png" />
-    <Resource Include="Images\heads\head-right-monocle.png" />
-    <Resource Include="Images\heads\head-right-trucker.png" />
-    <Resource Include="Images\heads\head-right-vampire.png" />
-    <Resource Include="Images\heads\head-right-werewolf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

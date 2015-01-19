@@ -53,6 +53,7 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
+        public readonly Models.CharacterParts CharacterParts;
 
         public MainViewModel()
         {
@@ -60,6 +61,7 @@ namespace ElyseGUI.ViewModels
             storyBook = new StoryBook();
             tutorialBox = new TutorialBox();
             preview = new Preview();
+            CharacterParts = new Models.CharacterParts();
 
             PlayCommand = new Commands.PlayCommand(this);
             OpenProfileCommand = new Commands.OpenProfileCommand(this);
@@ -103,9 +105,13 @@ namespace ElyseGUI.ViewModels
                 System.Diagnostics.Debug.WriteLine("checking done ");
 
                // tutorialBox.msg = story.hasError ? "Have errors !!!" : "no errors!";
-                if(story.hasError)
+                if (story.hasError)
                 {
                     tutorialBox.SetMsgFromErrors(story.spellCheckerErrors);
+                }
+                else
+                {
+                    tutorialBox.msg = "Type your text";
                 }
                 PlayCommand.TriggerChange();
             }).Invoke();
@@ -127,15 +133,21 @@ namespace ElyseGUI.ViewModels
         {
             if (_profileWindow != null)
             {
+                _profileWindow.DataContext = new ProfileViewModel(this, character, CharacterParts);
                 _profileWindow.Focus();
                 return;
             }
 
             _profileWindow = new ProfileWindow();
-            _profileWindow.DataContext = new ProfileViewModel(this, character);
+            _profileWindow.DataContext = new ProfileViewModel(this, character, CharacterParts);
+            _profileWindow.Closing += OnProfileClose;
             _profileWindow.Show();
         }
 
+        public void OnProfileClose(object sender, CancelEventArgs e)
+        {
+            _profileWindow = null;
+        }
 
         public ICommand OpenStoryBookCommand
         {
