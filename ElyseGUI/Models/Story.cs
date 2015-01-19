@@ -10,14 +10,14 @@ namespace ElyseGUI.Models
 {
     internal class Story : INotifyPropertyChanged
     {
-        public List<Error> spellCheckerErrors { get { return _spellCheckerErrors; } }
+        public List<Error> SpellCheckerErrors { get { return _spellCheckerErrors; } }
         private List<Error> _spellCheckerErrors;
 
-        public bool hasError { get { return _spellCheckerErrors.Count > 0;  } }
+        public bool HasError { get { return _spellCheckerErrors.Count > 0;  } }
 
         private string _text;
 
-        public string text {
+        public string Text {
             get
             {
                 return _text;
@@ -25,13 +25,13 @@ namespace ElyseGUI.Models
             set
             {
                 _text = value;
-                OnPropertyChanged("text");
+                OnPropertyChanged("Text");
             }
         }
 
         private bool _canEdit;
 
-        public bool canEdit
+        public bool CanEdit
         {
             get
             {
@@ -40,16 +40,16 @@ namespace ElyseGUI.Models
             set
             {
                 _canEdit = value;
-                OnPropertyChanged("canEdit");
+                OnPropertyChanged("CanEdit");
             }
         }
 
-        public bool canPlay
+        public bool CanPlay
         {
-            get { return !isEmpty && _canEdit; }
+            get { return !IsEmpty && _canEdit; }
         }
 
-        public bool isEmpty
+        public bool IsEmpty
         {
             get { return String.IsNullOrWhiteSpace(_text);  }
         }

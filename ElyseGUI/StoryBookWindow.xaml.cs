@@ -16,24 +16,19 @@ using System.ComponentModel;
 
 namespace ElyseGUI
 {
+    public delegate void OnStoryBookChange(string file);
+
     /// <summary>
     /// Désolé pour le pattern MVVM :/
     /// </summary>
     public partial class StoryBookWindow : Window
     {
-        private OnStoryBookClose _onClose;
         private OnStoryBookChange _onChange;
 
-        public StoryBookWindow(OnStoryBookChange onChange, OnStoryBookClose onClose)
+        public StoryBookWindow(OnStoryBookChange onChange)
         {
             InitializeComponent();
-            _onClose = onClose;
             _onChange = onChange;
-        }
-
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            _onClose();
         }
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

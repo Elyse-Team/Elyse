@@ -9,7 +9,7 @@
     <Grid>
 
  
-        <ItemsControl ItemsSource="{Binding CharacterList}">
+        <ItemsControl ItemsSource="{Binding Preview.CharacterList}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Preview:Character></Preview:Character>

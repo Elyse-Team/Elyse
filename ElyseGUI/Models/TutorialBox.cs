@@ -12,7 +12,7 @@ namespace ElyseGUI.Models
     {
         private string _msg;
 
-        public string msg
+        public string Msg
         {
             get
             {
@@ -21,7 +21,7 @@ namespace ElyseGUI.Models
             set
             {
                 _msg = value;
-                OnPropertyChanged("msg");
+                OnPropertyChanged("Msg");
             }
         }
 
@@ -34,7 +34,7 @@ namespace ElyseGUI.Models
                 _msg += String.Format("msg: {0}, cat: {1}, rep: {2}", e.msg, e.category, String.Join("-", e.replacements));
                 _msg += "\n";
             }
-            msg = _msg;
+            Msg = _msg;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

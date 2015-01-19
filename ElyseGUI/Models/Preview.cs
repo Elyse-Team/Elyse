@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using ElyseGUI.Models;
 
 namespace ElyseGUI.Models
 {
@@ -22,10 +23,21 @@ namespace ElyseGUI.Models
                 OnPropertyChanged("backgroundImage");
             }
         }
-            
+
+        public List<Character> CharacterList
+        {
+            get;
+            private set;
+        }
+
         public Preview()
         {
             backgroundImage = "background_beach";
+
+            CharacterList = new List<Character>();
+            CharacterList.Add(new Character());
+            CharacterList.Add(new Character());
+            CharacterList.Add(new Character());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -8,58 +8,179 @@ using System.Windows.Input;
 using System.Windows;
 using System.ComponentModel;
 using System.Windows.Controls;
+using ElyseGUI.Commands;
+using ElyseGUI.Models;
 
 namespace ElyseGUI.ViewModels
 {
     internal class MainViewModel
     {
-        public Story story
+        public TutorialBox TutorialBox
         {
             get;
             private set;
         }
 
-        public StoryBook storyBook
+        public readonly Images Images;
+
+        public MainViewModel()
+        {
+            Story = new Story();
+            StoryBook = new StoryBook();
+            TutorialBox = new TutorialBox();
+            Preview = new Preview();
+            Images = new Images();
+            PlayCommand = new PlayCommand(this);
+            OpenProfileCommand = new OpenProfileCommand(this);
+            OpenStoryBookCommand = new OpenStoryBookCommand(this);
+
+            TutorialBox.Msg = "Type your text";
+            SetPlaying(false);
+        }
+
+        public void Closing(object sender, CancelEventArgs e)
+        {
+            if (!Story.IsEmpty && !StoryBook.IsExists(Story))
+            {
+                StoryBook.Save(Story);
+            }
+        }
+
+        #region Story
+        public Story Story
         {
             get;
             private set;
         }
 
-        public Preview preview
+        public bool CanPlayStory { 
+            get {
+                return Story.CanPlay;
+            } 
+        }
+
+        public bool IsPlaying { get; private set; }
+
+        public PlayCommand PlayCommand
         {
             get;
             private set;
         }
 
-        public TutorialBox tutorialBox
+        internal void Play()
+        {
+            SetPlaying(true);
+            TutorialBox.Msg = "Loading..";
+
+            new Action(async () =>
+            {
+                try
+                {
+                    await Story.FindSpellCheckerErrors();
+                }
+                catch(Elyse.Languagetool.Exception e)
+                {
+                    System.Windows.MessageBox.Show("Languagetool: "+e.Message);
+                    TutorialBox.Msg = "Sorry but there is a little problem";
+                }
+                SetPlaying(false);
+
+                if (Story.HasError)
+                {
+                    TutorialBox.SetMsgFromErrors(Story.SpellCheckerErrors);
+                }
+                else
+                {
+                    TutorialBox.Msg = "Type your text";
+                }
+                PlayCommand.TriggerChange();
+            }).Invoke();
+        }
+
+        private void SetPlaying(bool playing)
+        {
+            IsPlaying = playing;
+            Story.CanEdit = !playing;
+        }
+
+        #endregion
+
+        #region Profile
+        public ICommand OpenProfileCommand
         {
             get;
             private set;
         }
+        private ProfileWindow _profileWindow;
+        public void OpenProfileWindow(Models.Character character)
+        {
+            if (_profileWindow != null)
+            {
+                _profileWindow.DataContext = new ProfileViewModel(this, character);
+                _profileWindow.Focus();
+                return;
+            }
 
-        public bool isPlaying { get; private set; }
+            _profileWindow = new ProfileWindow();
+            _profileWindow.DataContext = new ProfileViewModel(this, character);
+            _profileWindow.Closing += OnProfileClose;
+            _profileWindow.Show();
+        }
 
-        public Commands.PlayCommand PlayCommand
+        public void OnProfileClose(object sender, CancelEventArgs e)
+        {
+            _profileWindow = null;
+        }
+        #endregion
+
+        #region StoryBook
+        public ICommand OpenStoryBookCommand
         {
             get;
             private set;
         }
-
-
-
-        public List<Models.Character> CharacterList
+        public StoryBook StoryBook
         {
             get;
             private set;
         }
+        private Window _storyBookWindow;
+        public void OpenStoryBookWindow()
+        {
+            if (_storyBookWindow != null)
+            {
+                _storyBookWindow.Focus();
+                return;
+            }
 
-        public int CurrentBackground
+            OnStoryBookChange onChange = new OnStoryBookChange(OnStoryBookChange);
+            _storyBookWindow = new StoryBookWindow(onChange);
+            _storyBookWindow.DataContext = new StoryBookViewModel(this);
+            _storyBookWindow.Closing += StoryBookClosing;
+            _storyBookWindow.Show();
+        }
+
+        public void OnStoryBookChange(string text)
+        {
+            var file = StoryBook.GetPathFromSubstring(text);
+            Story.Text = StoryBook.GetFileContent(file);
+            _storyBookWindow.Close();
+        }
+
+        public void StoryBookClosing(object sender, CancelEventArgs e)
+        {
+            _storyBookWindow = null;
+        }
+        #endregion
+
+        #region Preview
+        public Preview Preview
         {
             get;
             private set;
         }
+        private int _currentPreviewBackground;
 
-        private readonly Commands.ChangePreviewCommands _changePreviewCommands;
         private ICommand _previousPreviewBackground;
         public ICommand PreviousPreviewBackgroundCommand
         {
@@ -92,164 +213,26 @@ namespace ElyseGUI.ViewModels
             }
         }
 
-        public readonly Models.Images Images;
-
-        public MainViewModel()
-        {
-            story = new Story();
-            storyBook = new StoryBook();
-            tutorialBox = new TutorialBox();
-            preview = new Preview();
-            Images = new Models.Images();
-            _changePreviewCommands = new Commands.ChangePreviewCommands(this);
-            PlayCommand = new Commands.PlayCommand(this);
-            OpenProfileCommand = new Commands.OpenProfileCommand(this);
-            OpenStoryBookCommand = new Commands.OpenStoryBookCommand(this);
-
-            tutorialBox.msg = "Type your text";
-            setPlaying(false);
-
-            CharacterList = new List<Models.Character>();
-            CharacterList.Add(new Models.Character());
-            CharacterList.Add(new Models.Character());
-            CharacterList.Add(new Models.Character());
-        }
-
-        public bool CanPlayStory { 
-            get {
-                return story.canPlay;
-            } 
-        }
-
-        internal void Play()
-        {
-            System.Diagnostics.Debug.WriteLine("playing start ==========================================");
-            setPlaying(true);
-            tutorialBox.msg = "Loading..";
-
-            new Action(async () =>
-            {
-                System.Diagnostics.Debug.WriteLine("checking start");
-                try
-                {
-                    await story.FindSpellCheckerErrors();
-                }
-                catch(Elyse.Languagetool.Exception e)
-                {
-                    System.Windows.MessageBox.Show("Languagetool: "+e.Message);
-                    tutorialBox.msg = "Sorry but there is a little problem";
-                }
-                setPlaying(false);
-                System.Diagnostics.Debug.WriteLine("checking done ");
-
-                if (story.hasError)
-                {
-                    tutorialBox.SetMsgFromErrors(story.spellCheckerErrors);
-                }
-                else
-                {
-                    tutorialBox.msg = "Type your text";
-                }
-                PlayCommand.TriggerChange();
-            }).Invoke();
-        }
-
         public void NextPreviewBackground()
         {
-            CurrentBackground += 1;
-            if (CurrentBackground > (Images.Backgrounds.Count() - 1))
+            _currentPreviewBackground += 1;
+            if (_currentPreviewBackground > (Images.Backgrounds.Count() - 1))
             {
-                CurrentBackground = 0;
+                _currentPreviewBackground = 0;
             }
-            System.Diagnostics.Debug.WriteLine("Next previeww background");
-            preview.backgroundImage = Images.Backgrounds[CurrentBackground];
+            Preview.backgroundImage = Images.Backgrounds[_currentPreviewBackground];
         }
 
         public void PreviousPreviewBackground()
         {
-            System.Diagnostics.Debug.WriteLine("PreviousPreviewBackground previeww background");
-            CurrentBackground -= 1;
-            if (CurrentBackground < 1)
+            _currentPreviewBackground -= 1;
+            if (_currentPreviewBackground < 1)
             {
-                CurrentBackground = 0;
+                _currentPreviewBackground = 0;
             }
-
-            preview.backgroundImage = Images.Backgrounds[CurrentBackground];
-            System.Diagnostics.Debug.WriteLine(Images.Backgrounds[CurrentBackground]);
+            Preview.backgroundImage = Images.Backgrounds[_currentPreviewBackground];
+            System.Diagnostics.Debug.WriteLine(Images.Backgrounds[_currentPreviewBackground]);
         }
-
-        private void setPlaying(bool playing)
-        {
-            isPlaying = playing;
-            story.canEdit = !playing;
-        }
-
-        public ICommand OpenProfileCommand
-        {
-            get;
-            private set;
-        }
-        private ProfileWindow _profileWindow;
-        public void OpenProfileWindow(Models.Character character)
-        {
-            if (_profileWindow != null)
-            {
-                _profileWindow.DataContext = new ProfileViewModel(this, character);
-                _profileWindow.Focus();
-                return;
-            }
-
-            _profileWindow = new ProfileWindow();
-            _profileWindow.DataContext = new ProfileViewModel(this, character);
-            _profileWindow.Closing += OnProfileClose;
-            _profileWindow.Show();
-        }
-
-        public void OnProfileClose(object sender, CancelEventArgs e)
-        {
-            _profileWindow = null;
-        }
-
-        public ICommand OpenStoryBookCommand
-        {
-            get;
-            private set;
-        }
-        private Window _storyBookWindow;
-        public void OpenStoryBookWindow()
-        {
-            if (_storyBookWindow != null)
-            {
-                _storyBookWindow.Focus();
-                return;
-            }
-
-            OnStoryBookChange onChange = new OnStoryBookChange(OnStoryBookChange);
-            OnStoryBookClose onClose = new OnStoryBookClose(OnStoryBookClose);
-
-            _storyBookWindow = new StoryBookWindow(onChange, onClose);
-            _storyBookWindow.DataContext = new StoryBookViewModel();
-            _storyBookWindow.Show();
-        }
-
-        public void OnStoryBookChange(string text)
-        {
-            var file = storyBook.GetPathFromSubstring(text);
-            story.text = storyBook.GetFileContent(file);
-            _storyBookWindow.Close();
-        }
-
-        public void OnStoryBookClose()
-        {
-            _storyBookWindow = null;
-        }
-
-        public void Closing(object sender, CancelEventArgs e)
-        {            
-            if(!story.isEmpty && !storyBook.IsExists(story))
-            {
-                storyBook.Save(story);
-            }
-        }
+        #endregion
     }
 }

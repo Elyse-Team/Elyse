@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.Background>
-            <ImageBrush  ImageSource="{Binding preview.backgroundImage}"/>
+            <ImageBrush  ImageSource="{Binding Preview.backgroundImage}"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>

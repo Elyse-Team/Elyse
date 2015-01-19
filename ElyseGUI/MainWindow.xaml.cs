@@ -17,8 +17,6 @@ using System.Windows.Shapes;
 
 namespace ElyseGUI
 {
-    public delegate void OnStoryBookChange(string file);
-    public delegate void OnStoryBookClose();
 
     public partial class MainWindow : Window
     {

@@ -80,7 +80,7 @@ namespace ElyseGUI.Models
             var filePaths = GetFileList();
             foreach(var path in filePaths)
             {
-                if(story.text.Equals(GetFileContent(path)))
+                if(story.Text.Equals(GetFileContent(path)))
                 {
                     return true;
                 }
@@ -91,7 +91,7 @@ namespace ElyseGUI.Models
 
         public void Save(Story story)
         {
-            if(String.IsNullOrWhiteSpace(story.text))
+            if(String.IsNullOrWhiteSpace(story.Text))
             {
                 return;
             }
@@ -102,7 +102,7 @@ namespace ElyseGUI.Models
 
             using (StreamWriter outfile = new StreamWriter(@"books/"+rnd.Next(1,9000)+".txt"))
             {
-                outfile.Write(story.text);
+                outfile.Write(story.Text);
             }
         }
 
