@@ -5,14 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:Preview="clr-namespace:ElyseGUI.Views.Preview"
+             xmlns:Converters="clr-namespace:ElyseGUI.Converters"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
     <Grid>
-
- 
         <ItemsControl ItemsSource="{Binding Preview.CharacterList}">
+            
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Preview:Character></Preview:Character>
+                    <Grid>
+                        <Preview:Character Visibility="{Binding Path=IsFilled, Converter={StaticResource BoolToVis}}"/>
+                        <Preview:EmptyCharacter Visibility="{Binding Path=IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>

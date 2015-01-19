@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BooleanToHiddenVisibility.cs" />
     <Compile Include="Commands\OpenProfileCommand.cs" />
     <Compile Include="Commands\OpenStoryBookCommand.cs" />
     <Compile Include="Commands\PlayCommand.cs" />

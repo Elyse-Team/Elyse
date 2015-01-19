@@ -93,6 +93,12 @@ namespace ElyseGUI.ViewModels
             Character = character;
             _mainViewModel = mainViewModel;
             _currentBody = _currentHead = 0; 
+
+            if(Character.IsEmpty)
+            {
+                //Character.Name = "Name";
+                _mainViewModel.Preview.CharacterList.Add(new Character());
+            }
         }
 
         public void PreviousHead()

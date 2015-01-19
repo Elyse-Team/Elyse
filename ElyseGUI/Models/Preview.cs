@@ -30,13 +30,13 @@ namespace ElyseGUI.Models
             private set;
         }
 
+        private readonly int _maxCharacters = 3;
+
         public Preview()
         {
             backgroundImage = "background_beach";
 
             CharacterList = new List<Character>();
-            CharacterList.Add(new Character());
-            CharacterList.Add(new Character());
             CharacterList.Add(new Character());
         }
 

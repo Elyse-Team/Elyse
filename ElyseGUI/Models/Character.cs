@@ -38,10 +38,21 @@ namespace ElyseGUI.Models
             }
         }
 
+        public bool IsFilled
+        {
+            //get { return !String.IsNullOrWhiteSpace(Name); }
+            get { return !IsEmpty; }
+        }
+
+        public bool IsEmpty
+        {
+            get { return String.IsNullOrWhiteSpace(Name); }
+        }
+
         public Character()
         {
 
-            Name = "Test perso pornographique";
+            //Name = "Test perso pornographique";
             HeadImage = "head-left-batman";
             BodyImage = "Body-left-alien";
         }
