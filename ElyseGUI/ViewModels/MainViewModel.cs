@@ -9,7 +9,6 @@ using System.Windows;
 using System.ComponentModel;
 using System.Windows.Controls;
 using ElyseGUI.Commands;
-using ElyseGUI.Models;
 
 namespace ElyseGUI.ViewModels
 {
