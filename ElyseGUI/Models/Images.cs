@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElyseGUI.Models
 {
-    class CharacterParts
+    class Images
     {
         private string[] _heads;
         public string[] Heads
@@ -54,6 +54,30 @@ namespace ElyseGUI.Models
         {
             return Directory.GetFiles(System.IO.Path.GetFullPath("..\\..\\") + "/Images/bodies/", "Body*")
                 .Select(s =>  s.Replace(".png", "").Substring(s.LastIndexOf("/")+1)).ToArray();
+        }
+
+        private string[] _backgrounds;
+        public string[] Backgrounds
+        {
+            get
+            {
+                _loadBackgrounds();
+                return _backgrounds;
+            }
+        }
+
+        private void _loadBackgrounds()
+        {
+            if (_backgrounds == null)
+            {
+                _backgrounds = _fetchBackgrounds();
+            }
+        }
+
+        private string[] _fetchBackgrounds()
+        {
+            return Directory.GetFiles(System.IO.Path.GetFullPath("..\\..\\") + "/Images/backgrounds/", "background*")
+                .Select(s => s.Replace(".jpg", "").Substring(s.LastIndexOf("/") + 1)).ToArray();
         }
     }
 }

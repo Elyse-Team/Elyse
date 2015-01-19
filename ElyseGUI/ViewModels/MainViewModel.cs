@@ -53,7 +53,47 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        public readonly Models.CharacterParts CharacterParts;
+        public int CurrentBackground
+        {
+            get;
+            private set;
+        }
+
+        private readonly Commands.ChangePreviewCommands _changePreviewCommands;
+        private ICommand _previousPreviewBackground;
+        public ICommand PreviousPreviewBackgroundCommand
+        {
+            get
+            {
+                if (_previousPreviewBackground == null)
+                {
+                    _previousPreviewBackground = new Commands.RelayCommand(
+                        //param => _changePreviewCommands.PreviousBackground(),
+                        param => this.PreviousPreviewBackground(),
+                        param => true
+                    );
+                }
+                return _previousPreviewBackground;
+            }
+        }
+
+        private ICommand _nextPreviewBackground;
+        public ICommand NextPreviewBackgroundCommand
+        {
+            get
+            {
+                if (_nextPreviewBackground == null)
+                {
+                    _nextPreviewBackground = new Commands.RelayCommand(
+                        param => _changePreviewCommands.PreviousBackground(),
+                        param => true
+                    );
+                }
+                return _nextPreviewBackground;
+            }
+        }
+
+        public readonly Models.Images Images;
 
         public MainViewModel()
         {
@@ -61,8 +101,8 @@ namespace ElyseGUI.ViewModels
             storyBook = new StoryBook();
             tutorialBox = new TutorialBox();
             preview = new Preview();
-            CharacterParts = new Models.CharacterParts();
-
+            Images = new Models.Images();
+            _changePreviewCommands = new Commands.ChangePreviewCommands(this);
             PlayCommand = new Commands.PlayCommand(this);
             OpenProfileCommand = new Commands.OpenProfileCommand(this);
             OpenStoryBookCommand = new Commands.OpenStoryBookCommand(this);
@@ -98,13 +138,11 @@ namespace ElyseGUI.ViewModels
                 catch(Elyse.Languagetool.Exception e)
                 {
                     System.Windows.MessageBox.Show("Languagetool: "+e.Message);
-                    System.Diagnostics.Debug.WriteLine("Languagetool exception: "+e.Message);
                     tutorialBox.msg = "Sorry but there is a little problem";
                 }
                 setPlaying(false);
                 System.Diagnostics.Debug.WriteLine("checking done ");
 
-               // tutorialBox.msg = story.hasError ? "Have errors !!!" : "no errors!";
                 if (story.hasError)
                 {
                     tutorialBox.SetMsgFromErrors(story.spellCheckerErrors);
@@ -115,6 +153,28 @@ namespace ElyseGUI.ViewModels
                 }
                 PlayCommand.TriggerChange();
             }).Invoke();
+        }
+
+        public void NextPreviewBackground()
+        {
+            CurrentBackground += 1;
+            if (CurrentBackground > (Images.Backgrounds.Count() - 1))
+            {
+                CurrentBackground = 0;
+            }
+            System.Diagnostics.Debug.WriteLine("Next previeww background");
+            preview.backgroundImage = Images.Backgrounds[CurrentBackground];
+        }
+
+        public void PreviousPreviewBackground()
+        {
+            CurrentBackground -= 1;
+            if (CurrentBackground < 1)
+            {
+                CurrentBackground = 0;
+            }
+
+            preview.backgroundImage = Images.Backgrounds[CurrentBackground];
         }
 
         private void setPlaying(bool playing)
@@ -133,13 +193,13 @@ namespace ElyseGUI.ViewModels
         {
             if (_profileWindow != null)
             {
-                _profileWindow.DataContext = new ProfileViewModel(this, character, CharacterParts);
+                _profileWindow.DataContext = new ProfileViewModel(this, character);
                 _profileWindow.Focus();
                 return;
             }
 
             _profileWindow = new ProfileWindow();
-            _profileWindow.DataContext = new ProfileViewModel(this, character, CharacterParts);
+            _profileWindow.DataContext = new ProfileViewModel(this, character);
             _profileWindow.Closing += OnProfileClose;
             _profileWindow.Show();
         }

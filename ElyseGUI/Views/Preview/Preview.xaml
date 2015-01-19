@@ -20,9 +20,17 @@
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1" Padding="20"></Preview:ArrowLeft>
+        <Preview:ArrowLeft Grid.Column="0" Grid.Row="1" Padding="20">
+            <Preview:ArrowLeft.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding Path=PreviousPreviewBackgroundCommand}"/>
+            </Preview:ArrowLeft.InputBindings>
+        </Preview:ArrowLeft>
         <Preview:CharacterList Grid.Column="1" Grid.Row="1"></Preview:CharacterList>
-        <Preview:ArrowRight Grid.Column="2" Grid.Row="1" Padding="20"></Preview:ArrowRight>
+        <Preview:ArrowRight Grid.Column="2" Grid.Row="1" Padding="20">
+            <Preview:ArrowRight.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding Path=PreviousPreviewBackgroundCommand}"/>
+            </Preview:ArrowRight.InputBindings>
+        </Preview:ArrowRight>
 
     </Grid>
 </UserControl>

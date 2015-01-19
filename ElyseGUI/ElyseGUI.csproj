@@ -55,13 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\ChangeProfileCommand.cs" />
+    <Compile Include="Commands\ChangePreviewCommands.cs" />
+    <Compile Include="Commands\ChangeProfileCommands.cs" />
     <Compile Include="Commands\OpenProfileCommand.cs" />
     <Compile Include="Commands\OpenStoryBookCommand.cs" />
     <Compile Include="Commands\PlayCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\CharacterParts.cs" />
+    <Compile Include="Models\Images.cs" />
     <Compile Include="Models\Preview.cs" />
     <Compile Include="Models\Story.cs" />
     <Compile Include="Models\StoryBook.cs" />
@@ -235,7 +236,16 @@
     <Resource Include="Images\bodies\Body-left-vampire.png" />
     <Resource Include="Images\bodies\Body-left-werewolf.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\backgrounds\background_beach.jpg" />
+    <Resource Include="Images\backgrounds\background_dungeon.jpg" />
+    <Resource Include="Images\backgrounds\background_garden.jpg" />
+    <Resource Include="Images\backgrounds\background_gotham.jpg" />
+    <Resource Include="Images\backgrounds\background_house.jpg" />
+    <Resource Include="Images\backgrounds\background_ovni.jpg" />
+    <Resource Include="Images\backgrounds\background_party.jpg" />
+    <Resource Include="Images\backgrounds\background_street.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\heads\head-left-batman.png" />
     <Resource Include="Images\heads\head-left-cramp.png" />

@@ -18,14 +18,14 @@ namespace ElyseGUI.Models
             get { return _backgroundImage; }
             set
             {
-                _backgroundImage = value;
+                _backgroundImage = String.Format("/ElyseGUI;component/Images/backgrounds/{0}.jpg", value); ;
                 OnPropertyChanged("backgroundImage");
             }
         }
             
         public Preview()
         {
-            _backgroundImage = String.Format("/ElyseGUI;component/Images/{0}.jpg", "bg");
+            backgroundImage = "background_beach";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

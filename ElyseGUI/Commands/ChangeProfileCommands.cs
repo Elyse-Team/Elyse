@@ -8,11 +8,11 @@ using System.Windows.Input;
 
 namespace ElyseGUI.Commands
 {
-    class ChangeProfileCommand : ICommand
+    class ChangeProfileCommands : ICommand
     {
         private ProfileViewModel _profileViewModel;
 
-        public ChangeProfileCommand(ProfileViewModel profileViewModel)
+        public ChangeProfileCommands(ProfileViewModel profileViewModel)
         {
             _profileViewModel = profileViewModel;
         }
