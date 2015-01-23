@@ -120,6 +120,12 @@ namespace ElyseGUI.ViewModels
                 return;
             }
 
+            Preview.CharacterList.Add(new Character());
+
+            if (character.IsEmpty)
+            {
+                character.Name = "Dummy name";
+            }
             _profileWindow = new ProfileWindow();
             _profileWindow.DataContext = new ProfileViewModel(this, character);
             _profileWindow.Closing += OnProfileClose;

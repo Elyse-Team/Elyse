@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace ElyseGUI.Models
             }
         }
 
-        public List<Character> CharacterList
+        public ObservableCollection<Character> CharacterList
         {
             get;
             private set;
@@ -36,7 +37,8 @@ namespace ElyseGUI.Models
         {
             backgroundImage = "background_beach";
 
-            CharacterList = new List<Character>();
+            CharacterList = new ObservableCollection<Character>();
+            CharacterList.Add(new Character());
             CharacterList.Add(new Character());
         }
 

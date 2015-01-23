@@ -1,0 +1,6 @@
+Width="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}}"
+
+<Canvas.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.OpenProfileCommand,
+             RelativeSource={RelativeSource AncestorType=WrapPanel}}" CommandParameter="{Binding}" />
+            </Canvas.InputBindings>

@@ -7,18 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Canvas >
-            <Canvas.InputBindings>
-                <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.OpenProfileCommand,
-             RelativeSource={RelativeSource AncestorType=WrapPanel}}" CommandParameter="{Binding}" />
-            </Canvas.InputBindings>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Canvas Grid.Column="0" Grid.Row="0">
+            
             <Rectangle
-    Width="100"
-    Height="50"
-    Fill="Blue"
-    Stroke="Black" StrokeThickness="4"
-    RadiusX="20" RadiusY="20"
-    />
+
+                Fill="Blue"
+                Stroke="Black" StrokeThickness="4"
+                RadiusX="20" RadiusY="20"
+                Stretch="UniformToFill"
+                Width="100"
+                Height="200"
+                />
 
         </Canvas>
     </Grid>

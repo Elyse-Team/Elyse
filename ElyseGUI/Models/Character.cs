@@ -10,10 +10,17 @@ namespace ElyseGUI.Models
 {
     class Character : INotifyPropertyChanged
     {
+        private string _name;
         public string Name
         {
-            get;
-            private set;
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged("Name");
+                OnPropertyChanged("IsFilled");
+                OnPropertyChanged("IsEmpty");
+            }
         }
 
         private string _headImage;
@@ -38,12 +45,14 @@ namespace ElyseGUI.Models
             }
         }
 
+        private bool _isFilled;
         public bool IsFilled
         {
             //get { return !String.IsNullOrWhiteSpace(Name); }
             get { return !IsEmpty; }
         }
 
+        private bool _isEmpty;
         public bool IsEmpty
         {
             get { return String.IsNullOrWhiteSpace(Name); }

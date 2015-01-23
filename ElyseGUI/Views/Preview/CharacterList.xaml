@@ -16,14 +16,14 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Preview:Character Visibility="{Binding Path=IsFilled, Converter={StaticResource BoolToVis}}"/>
-                        <Preview:EmptyCharacter Visibility="{Binding Path=IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                        <Preview:Character Visibility="{Binding Path=IsFilled, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVis}}"/>
+                        <Preview:EmptyCharacter Visibility="{Binding Path=IsEmpty, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVis}}"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical"/>
+                    <WrapPanel Orientation="Vertical" IsItemsHost="True"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
