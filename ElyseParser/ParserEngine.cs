@@ -13,7 +13,7 @@ namespace ElyseParser
     {
         private Scene _scene;
         private StanfordParser _parser;
-        private Annotation _ast;
+        private Annotation ast;
 
         public Scene scene
         {
@@ -30,10 +30,11 @@ namespace ElyseParser
         {
             _scene = new Scene(sceneBuilder);
             string story = sceneBuilder.GetStory();
-            _ast = _parser.Parse(story);
-
-            // return a list of instructions
-            return blabla;
+            ast = _parser.Parse(story);
+            List<Instruction> storyInstructions = new List<Instruction>();
+            MorphAST morphAST = new MorphAST(ast);
+            storyInstructions = morphAST.run(_scene);
+            return storyInstructions;
         }
     }
 }

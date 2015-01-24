@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElyseParser
+namespace ElyseLibrary
 {
-    internal class VisitorEntity
+    public class Error : Instruction
     {
 
     }

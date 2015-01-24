@@ -8,7 +8,7 @@ namespace ElyseLibrary
 {
     // Move from a position to another position
     // CHARACTER & ANIMAL
-    internal class Move : BasicBehavior
+    public class Move : BasicBehavior
     {
         private IPositionable _target;
         public IPositionable Target

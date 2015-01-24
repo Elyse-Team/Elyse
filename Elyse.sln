@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseParser", "ElyseParser\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseRender", "ElyseRender\ElyseRender.csproj", "{7D10245A-BF61-491E-85DE-E78B6B5686E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseAdvisor", "ElyseAdvisor\ElyseAdvisor.csproj", "{C81CF61E-F2C5-4CE7-8DF0-D6785EED9E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElyseVisitors", "ElyseVisitors\ElyseVisitors.csproj", "{350736BA-F381-40D6-86AA-5BD5EAB48E23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,14 @@ Global
 		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D10245A-BF61-491E-85DE-E78B6B5686E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81CF61E-F2C5-4CE7-8DF0-D6785EED9E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81CF61E-F2C5-4CE7-8DF0-D6785EED9E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81CF61E-F2C5-4CE7-8DF0-D6785EED9E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81CF61E-F2C5-4CE7-8DF0-D6785EED9E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350736BA-F381-40D6-86AA-5BD5EAB48E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350736BA-F381-40D6-86AA-5BD5EAB48E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350736BA-F381-40D6-86AA-5BD5EAB48E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350736BA-F381-40D6-86AA-5BD5EAB48E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

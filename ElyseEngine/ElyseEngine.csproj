@@ -55,6 +55,10 @@
       <Project>{7d10245a-bf61-491e-85de-e78b6b5686e0}</Project>
       <Name>ElyseRender</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ElyseVisitors\ElyseVisitors.csproj">
+      <Project>{350736ba-f381-40d6-86aa-5bd5eab48e23}</Project>
+      <Name>ElyseVisitors</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

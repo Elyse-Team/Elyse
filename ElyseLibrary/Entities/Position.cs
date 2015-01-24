@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Position : IPositionable
+    public class Position : IPositionable
     {
         // Position
         readonly string _name;

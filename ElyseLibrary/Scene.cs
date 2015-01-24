@@ -19,7 +19,7 @@ namespace ElyseLibrary
         private List<Character> _characters;
 
 
-        internal List<Position> Positions { get { return _positions; } }
+        public List<Position> Positions { get { return _positions; } }
         internal int Height { get { return _height; } }
         internal int Width { get { return _width; } }
         public Background Background { get { return _background; } set { _background = value; } }

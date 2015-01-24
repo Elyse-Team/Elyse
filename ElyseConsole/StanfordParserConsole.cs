@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using edu.stanford.nlp.util;
 using edu.stanford.nlp.semgraph;
 using edu.stanford.nlp.dcoref;
+using System.Text.RegularExpressions;
+using ElyseLibrary;
 
 
 namespace ElyseConsole
@@ -76,27 +78,61 @@ namespace ElyseConsole
 
 
         // Morph AST
-        public void MorphAST()
+        public void MorphAST(Scene scene)
         {
             ArrayList sentences = this.Annotation.get(new CoreAnnotations.SentencesAnnotation().getClass()) as ArrayList;
+            Regex moveAction = new Regex("(walk|come|appear)");
+            List<Instruction> storyInstructions = new List<Instruction>();
     
             foreach(CoreMap sentence in sentences)
             {
+                List<Character> characterList = new List<Character>();
+                List<string> movementList = new List<string>();
+                List<IPositionable> positionList = new List<IPositionable>();
+
                 // liste de tokens
                 var tokens = sentence.get(new CoreAnnotations.TokensAnnotation().getClass()) as List;
                 
                 for (var i = 0; i < tokens.size(); i++)
                 {
                     var token = tokens.get(i) as CoreLabel;
-                    var text = token.get(new CoreAnnotations.TextAnnotation().getClass());
-                    var pos = token.get(new CoreAnnotations.PartOfSpeechAnnotation().getClass());
-                    var lemma = token.get(new CoreAnnotations.LemmaAnnotation().getClass());
-                    var ner = token.get(new CoreAnnotations.NamedEntityTagAnnotation().getClass());
+                    var text = token.originalText();
+                    var pos = token.tag();
+                    var lemma = token.lemma();
+                    var ner = token.ner();
+
+                    if (ner == "PERSON")
+                    {
+                        foreach(Character character in scene.Characters)
+                        {
+                            if (text == character.Name) characterList.Add(character);
+                        }
+                    }
+
+                    if (pos == "NN")
+                    {
+                        foreach (IPositionable position in scene.Positions)
+                        {
+                            if (text == position.Name) positionList.Add(position);
+                        }
+                    }
+
+                    if (moveAction.IsMatch(lemma)) movementList.Add(lemma);
 
                     System.Console.WriteLine("- text : " + text + " - pos : " + pos + " - lemma : " + lemma + " - ner : " + ner + " -");
                 }
+
+                if (characterList.Count == 1 && movementList.Count == 1 && positionList.Count == 1)
+                {
+                    storyInstructions.Add(new Move(characterList[0], positionList[0]));
+                }
+
                 System.Console.WriteLine("\n");
             }
+
+            // TEST
+                System.Console.WriteLine("Nombre d'instructions : " + storyInstructions.Count);
+                System.Console.WriteLine("Type de l'instruction : " + storyInstructions[0].GetType());
         }
 
         // Test Console

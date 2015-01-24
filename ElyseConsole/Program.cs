@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using edu.stanford.nlp.pipeline;
+using ElyseLibrary;
 
 namespace ElyseConsole
 {
@@ -16,6 +17,10 @@ namespace ElyseConsole
             StanfordParserConsole parser = new StanfordParserConsole(path);
             System.Console.WriteLine("\nParser Loaded !\n");
 
+            SceneBuilder sceneBuilder = new SceneBuilder();
+            sceneBuilder.AddCharacter("Kevin", Character.Gender.Male, Character.SkinColor.White, Character.ShirtColor.Blue);
+            Scene scene = new Scene(sceneBuilder);
+
             bool on = true;
             while (on)
             {
@@ -23,7 +28,7 @@ namespace ElyseConsole
                 string sentence = System.Console.ReadLine();
                 parser.Parse(sentence);
                 parser.TestConsole();
-                parser.MorphAST();
+                parser.MorphAST(scene);
 
                 System.Console.WriteLine("\nParse another sentence ? <y>es - <n>o");
                 string response = System.Console.ReadLine();
