@@ -7,24 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Grid.InputBindings>
+            <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.OpenProfileCommand,
+         RelativeSource={RelativeSource AncestorType=WrapPanel}}" CommandParameter="{Binding}" />
+        </Grid.InputBindings>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
-        <Canvas Grid.Column="0" Grid.Row="0">
-            
-            <Rectangle
 
-                Fill="Blue"
-                Stroke="Black" StrokeThickness="4"
-                RadiusX="20" RadiusY="20"
-                Stretch="UniformToFill"
-                Width="100"
-                Height="200"
-                />
+        <Image Grid.Row="0" Grid.RowSpan="2" Source="/ElyseGUI;component/Images/empty_character.png" />
 
-        </Canvas>
     </Grid>
 </UserControl>

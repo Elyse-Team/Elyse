@@ -39,7 +39,6 @@ namespace ElyseGUI.Models
 
             CharacterList = new ObservableCollection<Character>();
             CharacterList.Add(new Character());
-            CharacterList.Add(new Character());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -253,6 +253,9 @@
     <Resource Include="Images\heads\head-left-vampire.png" />
     <Resource Include="Images\heads\head-left-werewolf.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\empty_character.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
