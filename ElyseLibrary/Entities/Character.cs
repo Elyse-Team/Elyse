@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Character : IPositionable, IKillable
+    [Serializable]
+    public class Character : IPositionable, IMaterializable, IKillable
     {
         // Position
         private bool _material;
@@ -17,6 +18,7 @@ namespace ElyseLibrary
         readonly string _name;
         private Gender _gender;
         private SkinColor _skinColor;
+        private ShirtColor _shirtColor;
         private Style _style;
 
         // Health
@@ -57,6 +59,12 @@ namespace ElyseLibrary
             private set { _skinColor = value; }
         }
 
+        public ShirtColor MyShirtColor
+        {
+            get { return _shirtColor; }
+            set { _shirtColor = value; }
+        }
+
         public Style MyStyle
         {
             get { return _style; }
@@ -69,19 +77,28 @@ namespace ElyseLibrary
             set { _health = value; }
         }
 
-        internal enum Gender
+        public enum Gender
         {
             Male,
             Female
         }
 
-        internal enum SkinColor
+        public enum SkinColor
         {
             White,
             Black
         }
 
-        internal enum Style
+        public enum ShirtColor
+        {
+            Blue,
+            Green,
+            Purple,
+            Red,
+            Yellow
+        }
+
+        public enum Style
         { 
             None,
             Vampire,
@@ -101,7 +118,7 @@ namespace ElyseLibrary
             BlackSuit
         }
 
-        internal enum Health
+        public enum Health
         {
             Alive,
             Bleeding,
@@ -110,7 +127,11 @@ namespace ElyseLibrary
             Ghost
         }
 
-        public Character(string name, int x, int y, Gender gender = Gender.Male, SkinColor skinColor = SkinColor.White, Style style = Style.None)
+        public Character(string name, int x, int y,
+                        Gender gender = Gender.Male,
+                        SkinColor skinColor = SkinColor.White,
+                        ShirtColor shirtColor = ShirtColor.Blue,
+                        Style style = Style.None)
         {
             Material = true;
             X = x;
@@ -118,6 +139,7 @@ namespace ElyseLibrary
             _name = name;
             MyGender = gender;
             MySkinColor = skinColor;
+            MyShirtColor = shirtColor;
             MyStyle = style;
         }
 

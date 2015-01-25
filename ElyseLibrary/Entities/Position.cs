@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Position : IPositionable
+    public class Position : IPositionable
     {
         // Position
         readonly string _name;
-        readonly int _x;
-        readonly int _y;
-        readonly bool _material;
+        private int _x;
+        private int _y;
 
         public int X
         {
             get { return _x; }
+            set { _x = value; }
         }
 
         public int Y
         {
             get { return _y; }
+            set { _y = value; }
         }
 
         public string Name
@@ -29,17 +30,11 @@ namespace ElyseLibrary
             get { return _name; }
         }
 
-        public bool Material
-        {
-            get { return _material; }
-        }
-
         public Position(string name, int x, int y)
         {
             _name = name;
             _x = x;
             _y = y;
-            _material = false;
         }
     }
 }

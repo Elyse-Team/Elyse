@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ElyseLibrary
 {
-    internal abstract class Instruction
+    public abstract class Instruction
     {
 
     }

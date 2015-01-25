@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace ElyseLibrary
 {
     // Represent the mood of a character
+    // CHARACTER only
     internal class Feel : BasicBehavior
     {
         private string _feeling;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Item : IPositionable
+    internal class Item : IPositionable, IMaterializable
     {
         // Position
         private bool _material;
@@ -14,7 +14,7 @@ namespace ElyseLibrary
         private int _y;
 
         // Render
-        private string _name;
+        readonly string _name;
         private Style _style;
 
         public bool Material
@@ -38,7 +38,6 @@ namespace ElyseLibrary
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
         }
 
         public Style ItemStyle
@@ -60,7 +59,7 @@ namespace ElyseLibrary
             ItemStyle = style;
             X = x;
             Y = y;
-            Name = name;
+            _name = name;
         }
     }
 }
