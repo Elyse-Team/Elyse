@@ -15,12 +15,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="50*"/>
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Source="{Binding Path=HeadImage}" />
-        <Image Grid.Row="1" Source="{Binding Path=BodyImage}" />
+        <TextBlock Grid.Row="0" TextAlignment="Center"  Text="{Binding Path=Name}" FontWeight="Bold" FontSize="20"/>
+        <Image Grid.Row="1" Source="{Binding Path=HeadImage}" />
+        <Image Grid.Row="2" Source="{Binding Path=BodyImage}" />
 
     </Grid>
 </UserControl>

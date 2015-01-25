@@ -120,7 +120,10 @@ namespace ElyseGUI.ViewModels
                 return;
             }
 
-            Preview.CharacterList.Add(new Character());
+            if (Preview.CanAddCharacter())
+            {
+                Preview.CharacterList.Add(new Character());
+            }
 
             if (character.IsEmpty)
             {

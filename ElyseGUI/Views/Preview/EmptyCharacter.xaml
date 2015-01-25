@@ -15,11 +15,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Grid.RowSpan="2" Source="/ElyseGUI;component/Images/empty_character.png" />
+        <TextBlock Grid.Row="0" TextAlignment="Center"  Text="" FontWeight="Bold" FontSize="20"/>
+
+        <Image Grid.Row="1" Grid.RowSpan="2" Source="/ElyseGUI;component/Images/empty_character.png" />
 
     </Grid>
 </UserControl>

@@ -31,7 +31,7 @@ namespace ElyseGUI.Models
             private set;
         }
 
-        private readonly int _maxCharacters = 3;
+        private const int MaxCharacters = 3;
 
         public Preview()
         {
@@ -39,6 +39,11 @@ namespace ElyseGUI.Models
 
             CharacterList = new ObservableCollection<Character>();
             CharacterList.Add(new Character());
+        }
+
+        public bool CanAddCharacter()
+        {
+            return CharacterList.Count() < MaxCharacters;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
