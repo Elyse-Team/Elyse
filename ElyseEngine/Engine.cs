@@ -25,7 +25,7 @@ namespace ElyseEngine
 
         public Engine()
         {
-            elysePath = "B:/Visual Studio Projects";
+            elysePath = System.IO.Path.GetFullPath("..\\..\\..\\"); 
             sceneBuilder = new SceneBuilder();
             parserEngine = new ParserEngine(elysePath);
             partialInstructions = new List<Instruction>();

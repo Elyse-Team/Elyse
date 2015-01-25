@@ -13,7 +13,7 @@ namespace ElyseConsole
 
         static void Main(string[] args)
         {
-            string path = "B:/Visual Studio Projects";
+            string path = System.IO.Path.GetFullPath("..\\..\\..\\..\\");
             StanfordParserConsole parser = new StanfordParserConsole(path);
             System.Console.WriteLine("\nParser Loaded !\n");
 
@@ -27,7 +27,7 @@ namespace ElyseConsole
                 System.Console.WriteLine("Enter your sentence...\n");
                 string sentence = System.Console.ReadLine();
                 parser.Parse(sentence);
-                parser.TestConsole();
+                parser.TestConsole(path);
                 parser.MorphAST(scene);
 
                 System.Console.WriteLine("\nParse another sentence ? <y>es - <n>o");

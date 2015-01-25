@@ -136,7 +136,7 @@ namespace ElyseConsole
         }
 
         // Test Console
-        public void TestConsole()
+        public void TestConsole(string path)
         {
             using (ByteArrayOutputStream stream = new ByteArrayOutputStream())
             {
@@ -147,7 +147,7 @@ namespace ElyseConsole
                 string response = System.Console.ReadLine();
                 if (response == "y")
                 {
-                    System.IO.File.WriteAllText(@"B:\StanfordParser\Test.txt", lines);
+                    System.IO.File.WriteAllText(path+"Test.txt", lines);
                 }
                 stream.close();
             }
