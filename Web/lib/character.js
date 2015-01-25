@@ -3,14 +3,9 @@ Elyse.Character = function(stage, options){
 	this.head = options.head || 'smile';
 	this.body = options.body || 'blue';
 
-	this.textures = {
-		head : PIXI.Texture.fromImage('./assets/img/' + Elyse.Character.heads[options.head || 'smile'].path),
-		body : PIXI.Texture.fromImage('./assets/img/' + Elyse.Character.bodies[options.body || 'blue'].path)
-	};
-
 	this.sprites = {
-		head : new PIXI.Sprite(this.textures.head),
-		body : new PIXI.Sprite(this.textures.body)
+		head : Elyse.loadSprite(Elyse.Character.heads[this.head].path),
+		body : Elyse.loadSprite(Elyse.Character.bodies[this.body].path)
 	};
 
 	this.sprites.head.scale.x = Elyse.Character.heads[this.head].scale;
@@ -71,23 +66,23 @@ Elyse.Character.bodies = {
 	}
 }
 
-//Methods
 
-Elyse.Character.prototype.update = function(callback){
-	if(this.isMoving){
-		this.x = this.x+(this.target.x-this.x > 10 ?10:this.target.x-this.x > 10);
-		this.y = this.y+(this.target.y-this.y > 10 ?10:this.target.y-this.y > 10);
-		if(this.x === this.target.x && this.y === this.target.y){
-			this.isMoving = false;
-		}
-	}
-}
-
-Elyse.Character.prototype.move = function(x, y, callback){
-	this.target.x = x;
-	this.target.y = y;
-	callback();
-	this.isMoving = true;
+Elyse.Character.prototype.move = function(x, y, ms, callback){
+	Elyse.addAnimation({
+		el : this,
+		type : 'transform',
+		ms : ms || 3000,
+		init : {
+			x : this.x,
+			y : this.y
+		},
+		target : {
+			x : x ,
+			y : y 
+		},
+		callback : callback
+	});
+	console.log(x,y)
 	return this;
 }
 
