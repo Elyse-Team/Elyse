@@ -1,0 +1,25 @@
+﻿<Window x:Class="ElyseGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ElyseGUI"
+        xmlns:Preview="clr-namespace:ElyseGUI.Views.Preview"
+        xmlns:Views="clr-namespace:ElyseGUI.Views" x:Name="StoryBox"
+        Title="Elyse 2.0" Height="350" Width="600">
+
+    <Grid Background="#19AAD9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="18*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="128*"/>
+            <RowDefinition Height="50*"  />
+        </Grid.RowDefinitions>
+
+        <Views:Header Grid.Row="0" Grid.ColumnSpan="2"/>
+        <Views:StoryBox Grid.Column="0"  Grid.Row="1"/>    
+        <Preview:Preview Grid.Column="1" Grid.Row="1"/>
+        <Views:Footer Grid.Row="2" Grid.ColumnSpan="2" Margin="0" Padding="10" Height="Auto"/>
+    </Grid>
+</Window>
