@@ -15,7 +15,7 @@ namespace ElyseEngine
 {
     public class Engine
     {
-        private SceneBuilder sceneBuilder;
+        public SceneBuilder sceneBuilder;
         private ParserEngine parserEngine;
         private string elysePath;
         private List<Instruction> partialInstructions;
