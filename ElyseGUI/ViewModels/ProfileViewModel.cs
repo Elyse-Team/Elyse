@@ -139,7 +139,7 @@ namespace ElyseGUI.ViewModels
 
         }
 
-        public void NextBody()
+        public void _NextBody()
         {
             _currentBody += 1;
             if (_currentBody > (_mainViewModel.Images.Bodies.Count() - 1))
@@ -148,6 +148,19 @@ namespace ElyseGUI.ViewModels
             }
 
             Character.BodyImage = _mainViewModel.Images.Bodies[_currentBody];
+            System.Diagnostics.Debug.WriteLine("next body " + Character.BodyImage);
+        }
+
+        public void NextBody()
+        {
+            _currentBody += 1;
+            if (_currentBody > (Enum.GetNames(typeof(ElyseLibrary.Character.ShirtColor)).Length - 1))
+            {
+                _currentBody = 0;
+            }
+
+            Character.SetBody(_currentBody);
+            //Character.BodyImage = _mainViewModel.Images.Bodies[_currentBody];
             System.Diagnostics.Debug.WriteLine("next body " + Character.BodyImage);
         }
     }

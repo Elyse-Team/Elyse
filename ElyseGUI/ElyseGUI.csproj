@@ -209,6 +209,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ElyseEngine\ElyseEngine.csproj">
+      <Project>{e32c5fa2-385c-497b-be94-567365becf54}</Project>
+      <Name>ElyseEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElyseLibrary\ElyseLibrary.csproj">
+      <Project>{72b50e23-e5f0-46b4-b836-26f992ea2b69}</Project>
+      <Name>ElyseLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Languagetool\Languagetool.csproj">
       <Project>{fcd3dd29-af77-4a33-b479-3d0569ea5cd3}</Project>
       <Name>Languagetool</Name>
@@ -222,18 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\arrow_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\bodies\Body-left-alien.png" />
-    <Resource Include="Images\bodies\Body-left-batman.png" />
-    <Resource Include="Images\bodies\Body-left-clown.png" />
-    <Resource Include="Images\bodies\Body-left-cramp.png" />
-    <Resource Include="Images\bodies\Body-left-punk.png" />
-    <Resource Include="Images\bodies\Body-left-smocking-black.png" />
-    <Resource Include="Images\bodies\Body-left-smocking-white.png" />
-    <Resource Include="Images\bodies\Body-left-trucker.png" />
-    <Resource Include="Images\bodies\Body-left-vampire.png" />
-    <Resource Include="Images\bodies\Body-left-werewolf.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgrounds\background_beach.jpg" />
@@ -255,6 +251,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\empty_character.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bodies\Body-left-blue.png" />
+    <Resource Include="Images\bodies\Body-left-green.png" />
+    <Resource Include="Images\bodies\Body-left-pink.png" />
+    <Resource Include="Images\bodies\Body-left-red.png" />
+    <Resource Include="Images\bodies\Body-left-yellow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

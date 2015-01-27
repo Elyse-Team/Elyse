@@ -9,11 +9,14 @@ using System.Windows;
 using System.ComponentModel;
 using System.Windows.Controls;
 using ElyseGUI.Commands;
+using ElyseEngine;
 
 namespace ElyseGUI.ViewModels
 {
     internal class MainViewModel
     {
+        public readonly Engine Engine;
+
         public TutorialBox TutorialBox
         {
             get;
@@ -32,6 +35,7 @@ namespace ElyseGUI.ViewModels
             PlayCommand = new PlayCommand(this);
             OpenProfileCommand = new OpenProfileCommand(this);
             OpenStoryBookCommand = new OpenStoryBookCommand(this);
+            Engine = new Engine();
 
             TutorialBox.Msg = "Type your text";
             SetPlaying(false);
@@ -90,6 +94,7 @@ namespace ElyseGUI.ViewModels
                 }
                 else
                 {
+                    Engine.Play();
                     TutorialBox.Msg = "Type your text";
                 }
                 PlayCommand.TriggerChange();

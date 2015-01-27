@@ -24,13 +24,13 @@ namespace ElyseParser
         public StanfordParser(string elysePath)
         {
             // chemin d'accès aux modèles d'annotations
-            string jarRoot = elysePath + "/Elyse/CoreNLP";
+            string jarRoot = Path.Combine(elysePath, @"Elyse\CoreNLP");
 
             // spécifications des modules d'annotations à lancer
             // Tokenizer - SentenceSplitter - PartOfSpeech - Lemma - NamedEntityRecognizer - Parser - Coreference
             Properties props = new Properties();
             props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-            props.put("ner.model", elysePath + "/Elyse/CoreNLP/edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz");
+            props.put("ner.model", Path.Combine(elysePath, @"Elyse\CoreNLP\edu\stanford\nlp\models\ner\english.all.3class.distsim.crf.ser.gz"));
 
             // Gestion des valeurs numériques et du temps : OFF
             props.put("ner.applyNumericClassifiers", "false");

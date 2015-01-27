@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ElyseLibrary;
 
 namespace ElyseGUI.Models
 {
@@ -48,7 +49,6 @@ namespace ElyseGUI.Models
         private bool _isFilled;
         public bool IsFilled
         {
-            //get { return !String.IsNullOrWhiteSpace(Name); }
             get { return !IsEmpty; }
         }
 
@@ -58,12 +58,26 @@ namespace ElyseGUI.Models
             get { return String.IsNullOrWhiteSpace(Name); }
         }
 
+        private ElyseLibrary.Character _coreCharacter;
+
+        public Character(ElyseLibrary.Character coreCharacter) : this()
+        {
+            _coreCharacter = coreCharacter;
+        }
+
         public Character()
         {
-
-            //Name = "Test perso pornographique";
             HeadImage = "head-left-batman";
             BodyImage = "Body-left-alien";
+        }
+
+        public void SetBody(int index)
+        {
+            _coreCharacter.MyShirtColor = (ElyseLibrary.Character.ShirtColor)  index;
+
+            string name = ((ElyseLibrary.Character.ShirtColor)index).ToString();
+
+            BodyImage = "Body-left-"+name;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 namespace ElyseLibrary
 {
     [Serializable]
-    public class Character : IPositionable, IMaterializable, IKillable
+    public class Character : IPositionable, IKillable
     {
         // Position
-        private bool _material;
         private int _x;
         private int _y;
 
@@ -23,12 +22,6 @@ namespace ElyseLibrary
 
         // Health
         private Health _health;
-
-        public bool Material
-        {
-            get { return _material; }
-            set { _material = value; }
-        }
 
         public int X
         {
@@ -133,7 +126,6 @@ namespace ElyseLibrary
                         ShirtColor shirtColor = ShirtColor.Blue,
                         Style style = Style.None)
         {
-            Material = true;
             X = x;
             Y = y;
             _name = name;
