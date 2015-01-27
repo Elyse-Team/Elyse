@@ -104,16 +104,17 @@ namespace ElyseGUI.ViewModels
                 catch(Elyse.Languagetool.Exception e)
                 {
                     exceptionHappened = true;
+                    SetPlaying(false);
                     System.Windows.MessageBox.Show("Languagetool: "+e.Message);
                     TutorialBox.Msg = "Sorry but there is a little problem";
                 }
                 SetPlaying(false);
 
-                if (Story.HasError && !exceptionHappened)
+                if (Story.HasError)
                 {
                     TutorialBox.SetMsgFromErrors(Story.SpellCheckerErrors);
                 }
-                else
+                else if(!exceptionHappened)
                 {
                     Engine.SceneBuilder.EditStory(Story.Text);
                     Engine.SceneBuilder.Characters = Preview.GetCoreCharacters();
