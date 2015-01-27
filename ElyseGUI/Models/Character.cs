@@ -18,6 +18,8 @@ namespace ElyseGUI.Models
             set
             {
                 _name = value;
+                CoreCharacter.Name = value;
+
                 OnPropertyChanged("Name");
                 OnPropertyChanged("IsFilled");
                 OnPropertyChanged("IsEmpty");
@@ -46,34 +48,42 @@ namespace ElyseGUI.Models
             }
         }
 
-        private bool _isFilled;
         public bool IsFilled
         {
             get { return !IsEmpty; }
         }
 
-        private bool _isEmpty;
         public bool IsEmpty
         {
             get { return String.IsNullOrWhiteSpace(Name); }
         }
 
-        private ElyseLibrary.Character _coreCharacter;
+        public ElyseLibrary.Character CoreCharacter
+        {
+            get;
+            private set;
+        }
 
         public Character(ElyseLibrary.Character coreCharacter) : this()
         {
-            _coreCharacter = coreCharacter;
+            CoreCharacter = coreCharacter;
         }
 
         public Character()
         {
-            HeadImage = "head-left-batman";
-            BodyImage = "Body-left-alien";
+            if (CoreCharacter == null)
+            {
+                CoreCharacter = new ElyseLibrary.Character();
+                CoreCharacter.MyShirtColor = ElyseLibrary.Character.ShirtColor.Blue;
+            }
+
+            HeadImage = "head-left-normal";
+            BodyImage = "Body-left-blue";
         }
 
         public void SetBody(int index)
         {
-            _coreCharacter.MyShirtColor = (ElyseLibrary.Character.ShirtColor)  index;
+            CoreCharacter.MyShirtColor = (ElyseLibrary.Character.ShirtColor)  index;
 
             string name = ((ElyseLibrary.Character.ShirtColor)index).ToString();
 

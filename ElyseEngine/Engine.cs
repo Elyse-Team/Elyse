@@ -9,7 +9,7 @@ using ElyseLibrary;
 using System.Runtime.Serialization.Formatters.Binary;
 using ElyseRender;
 using ElyseVisitors;
-
+using ElyseParser;
 
 namespace ElyseEngine
 {

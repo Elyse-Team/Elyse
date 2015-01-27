@@ -35,10 +35,7 @@ namespace ElyseLibrary
             set { _y = value; }
         }
 
-        public string Name
-        {
-            get { return _name; }
-        }
+        public string Name;
 
         public Gender MyGender
         {
@@ -86,7 +83,7 @@ namespace ElyseLibrary
         {
             Blue,
             Green,
-            Purple,
+            Pink,
             Red,
             Yellow
         }
@@ -120,6 +117,10 @@ namespace ElyseLibrary
             Ghost
         }
 
+        public Character()
+        {
+
+        }
         public Character(string name, int x, int y,
                         Gender gender = Gender.Male,
                         SkinColor skinColor = SkinColor.White,
@@ -135,5 +136,11 @@ namespace ElyseLibrary
             MyStyle = style;
         }
 
+
+
+        string IPositionable.Name
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

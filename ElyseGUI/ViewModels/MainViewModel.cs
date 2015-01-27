@@ -10,12 +10,17 @@ using System.ComponentModel;
 using System.Windows.Controls;
 using ElyseGUI.Commands;
 using ElyseEngine;
+using System.Runtime.InteropServices;
 
 namespace ElyseGUI.ViewModels
 {
     internal class MainViewModel
     {
-        public readonly Engine Engine;
+        public Engine Engine { get; private set; }
+        public bool EngineLoaded {
+            get;
+            private set;
+        }
 
         public TutorialBox TutorialBox
         {
@@ -25,8 +30,15 @@ namespace ElyseGUI.ViewModels
 
         public readonly Images Images;
 
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
         public MainViewModel()
         {
+            AllocConsole();
+            Console.WriteLine("Elyse started");
+
             Story = new Story();
             StoryBook = new StoryBook();
             TutorialBox = new TutorialBox();
@@ -35,9 +47,8 @@ namespace ElyseGUI.ViewModels
             PlayCommand = new PlayCommand(this);
             OpenProfileCommand = new OpenProfileCommand(this);
             OpenStoryBookCommand = new OpenStoryBookCommand(this);
-            Engine = new Engine();
-
-            TutorialBox.Msg = "Type your text";
+            EngineLoaded = false;
+            new Task(LoadEngine).Start();
             SetPlaying(false);
         }
 
@@ -47,6 +58,14 @@ namespace ElyseGUI.ViewModels
             {
                 StoryBook.Save(Story);
             }
+        }
+
+        private void LoadEngine()
+        {
+                TutorialBox.Msg = "loading parser...";
+                Engine = new Engine();
+                TutorialBox.Msg = "Type your text";
+                EngineLoaded = true;
         }
 
         #region Story
@@ -77,23 +96,27 @@ namespace ElyseGUI.ViewModels
 
             new Action(async () =>
             {
+                bool exceptionHappened = false;
                 try
                 {
                     await Story.FindSpellCheckerErrors();
                 }
                 catch(Elyse.Languagetool.Exception e)
                 {
+                    exceptionHappened = true;
                     System.Windows.MessageBox.Show("Languagetool: "+e.Message);
                     TutorialBox.Msg = "Sorry but there is a little problem";
                 }
                 SetPlaying(false);
 
-                if (Story.HasError)
+                if (Story.HasError && !exceptionHappened)
                 {
                     TutorialBox.SetMsgFromErrors(Story.SpellCheckerErrors);
                 }
                 else
                 {
+                    Engine.SceneBuilder.EditStory(Story.Text);
+                    Engine.SceneBuilder.Characters = Preview.GetCoreCharacters();
                     Engine.Play();
                     TutorialBox.Msg = "Type your text";
                 }
@@ -192,7 +215,7 @@ namespace ElyseGUI.ViewModels
             get;
             private set;
         }
-        private int _currentPreviewBackground;
+        private int _currentPreviewBackground = 1;
 
         private ICommand _previousPreviewBackground;
         public ICommand PreviousPreviewBackgroundCommand
@@ -231,9 +254,10 @@ namespace ElyseGUI.ViewModels
             _currentPreviewBackground += 1;
             if (_currentPreviewBackground > (Images.Backgrounds.Count() - 1))
             {
-                _currentPreviewBackground = 0;
+                _currentPreviewBackground = 1;
             }
             Preview.backgroundImage = Images.Backgrounds[_currentPreviewBackground];
+            Engine.SceneBuilder.SetBackground((ElyseLibrary.Entities.Background.BackgroundType)_currentPreviewBackground);
         }
 
         public void PreviousPreviewBackground()
@@ -244,6 +268,7 @@ namespace ElyseGUI.ViewModels
                 _currentPreviewBackground = 0;
             }
             Preview.backgroundImage = Images.Backgrounds[_currentPreviewBackground];
+            Engine.SceneBuilder.SetBackground((ElyseLibrary.Entities.Background.BackgroundType)_currentPreviewBackground);
             System.Diagnostics.Debug.WriteLine(Images.Backgrounds[_currentPreviewBackground]);
         }
         #endregion
