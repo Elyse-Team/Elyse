@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ElyseLibrary;
 
 namespace ElyseGUI.Models
 {
@@ -17,6 +18,8 @@ namespace ElyseGUI.Models
             set
             {
                 _name = value;
+                CoreCharacter.Name = value;
+
                 OnPropertyChanged("Name");
                 OnPropertyChanged("IsFilled");
                 OnPropertyChanged("IsEmpty");
@@ -45,25 +48,46 @@ namespace ElyseGUI.Models
             }
         }
 
-        private bool _isFilled;
         public bool IsFilled
         {
-            //get { return !String.IsNullOrWhiteSpace(Name); }
             get { return !IsEmpty; }
         }
 
-        private bool _isEmpty;
         public bool IsEmpty
         {
             get { return String.IsNullOrWhiteSpace(Name); }
         }
 
+        public ElyseLibrary.Character CoreCharacter
+        {
+            get;
+            private set;
+        }
+
+        public Character(ElyseLibrary.Character coreCharacter) : this()
+        {
+            CoreCharacter = coreCharacter;
+        }
+
         public Character()
         {
+            if (CoreCharacter == null)
+            {
+                CoreCharacter = new ElyseLibrary.Character();
+                CoreCharacter.MyShirtColor = ElyseLibrary.Character.ShirtColor.Blue;
+            }
 
-            //Name = "Test perso pornographique";
-            HeadImage = "head-left-batman";
-            BodyImage = "Body-left-alien";
+            HeadImage = "head-left-normal";
+            BodyImage = "Body-left-blue";
+        }
+
+        public void SetBody(int index)
+        {
+            CoreCharacter.MyShirtColor = (ElyseLibrary.Character.ShirtColor)  index;
+
+            string name = ((ElyseLibrary.Character.ShirtColor)index).ToString();
+
+            BodyImage = "Body-left-"+name;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

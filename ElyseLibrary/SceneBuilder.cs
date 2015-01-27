@@ -15,7 +15,7 @@ namespace ElyseLibrary
         private Background _background;
         private string _story;
 
-        internal List<Character> Characters { get { return _characters; } set { _characters = value; } }
+        public List<Character> Characters { get { return _characters; } set { _characters = value; } }
         internal Background Background { get { return _background; } set { _background = value; } }
         internal string Story { get { return _story; } set { _story = value; } }
 

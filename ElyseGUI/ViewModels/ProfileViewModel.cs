@@ -17,42 +17,7 @@ namespace ElyseGUI.ViewModels
             private set;
         }
 
-        private int _currentHead;
         private int _currentBody;
-
-        private ICommand _previousHead;
-
-        public ICommand PreviousHeadCommand
-        {
-            get
-            {
-                if (_previousHead == null)
-                {
-                    _previousHead = new Commands.RelayCommand(
-                        param => this.PreviousHead(),
-                        param => true
-                    );
-                }
-                return _previousHead;
-            }
-        }
-
-        private ICommand _nextHead;
-
-        public ICommand NextHeadCommand
-        {
-            get
-            {
-                if (_nextHead == null)
-                {
-                    _nextHead = new Commands.RelayCommand(
-                        param => this.NextHead(),
-                        param => true
-                    );
-                }
-                return _nextHead;
-            }
-        }
 
         private ICommand _previousBody;
 
@@ -92,38 +57,13 @@ namespace ElyseGUI.ViewModels
         {
             Character = character;
             _mainViewModel = mainViewModel;
-            _currentBody = _currentHead = 0; 
+            _currentBody= 0; 
 
             if(Character.IsEmpty)
             {
                 //Character.Name = "Name";
                 _mainViewModel.Preview.CharacterList.Add(new Character());
             }
-        }
-
-        public void PreviousHead()
-        {
-            _currentHead -= 1;
-            if (_currentHead < 1)
-            {
-                _currentHead = 0;
-            }
-
-            Character.HeadImage = _mainViewModel.Images.Heads[_currentHead];
-            System.Diagnostics.Debug.WriteLine("previous head");
-        }
-
-        public void NextHead()
-        {
-            _currentHead += 1;
-            if (_currentHead > (_mainViewModel.Images.Heads.Count() - 1))
-            {
-                _currentHead = 0;
-            }
-
-            Character.HeadImage = _mainViewModel.Images.Heads[_currentHead];
-            System.Diagnostics.Debug.WriteLine("next head "+ _currentHead);
-
         }
 
         public void PreviousBody()
@@ -142,12 +82,12 @@ namespace ElyseGUI.ViewModels
         public void NextBody()
         {
             _currentBody += 1;
-            if (_currentBody > (_mainViewModel.Images.Bodies.Count() - 1))
+            if (_currentBody > (Enum.GetNames(typeof(ElyseLibrary.Character.ShirtColor)).Length -1))
             {
                 _currentBody = 0;
             }
 
-            Character.BodyImage = _mainViewModel.Images.Bodies[_currentBody];
+            Character.SetBody(_currentBody);
             System.Diagnostics.Debug.WriteLine("next body " + Character.BodyImage);
         }
     }

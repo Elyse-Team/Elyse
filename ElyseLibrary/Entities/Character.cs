@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 namespace ElyseLibrary
 {
     [Serializable]
-    public class Character : IPositionable, IMaterializable, IKillable
+    public class Character : IPositionable, IKillable
     {
         // Position
-        private bool _material;
         private int _x;
         private int _y;
 
@@ -24,12 +23,6 @@ namespace ElyseLibrary
         // Health
         private Health _health;
 
-        public bool Material
-        {
-            get { return _material; }
-            set { _material = value; }
-        }
-
         public int X
         {
             get { return _x; }
@@ -42,10 +35,7 @@ namespace ElyseLibrary
             set { _y = value; }
         }
 
-        public string Name
-        {
-            get { return _name; }
-        }
+        public string Name;
 
         public Gender MyGender
         {
@@ -93,7 +83,7 @@ namespace ElyseLibrary
         {
             Blue,
             Green,
-            Purple,
+            Pink,
             Red,
             Yellow
         }
@@ -127,13 +117,16 @@ namespace ElyseLibrary
             Ghost
         }
 
+        public Character()
+        {
+
+        }
         public Character(string name, int x, int y,
                         Gender gender = Gender.Male,
                         SkinColor skinColor = SkinColor.White,
                         ShirtColor shirtColor = ShirtColor.Blue,
                         Style style = Style.None)
         {
-            Material = true;
             X = x;
             Y = y;
             _name = name;
@@ -143,5 +136,11 @@ namespace ElyseLibrary
             MyStyle = style;
         }
 
+
+
+        string IPositionable.Name
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

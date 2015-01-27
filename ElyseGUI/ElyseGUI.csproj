@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +36,105 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ejml-0.23">
+      <HintPath>..\packages\Stanford.NLP.CoreNLP.3.5.0.0\lib\ejml-0.23.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.AWT.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Charsets.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Cldrdata">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Cldrdata.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Corba.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Jdbc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Localedata">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Localedata.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Naming.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Nashorn">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Nashorn.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Tools">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Bind">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Crypto">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Parse">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Transform">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.WebServices">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.XPath">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI">
+      <HintPath>..\packages\IKVM.8.0.5449.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="javax.json">
+      <HintPath>..\packages\Stanford.NLP.CoreNLP.3.5.0.0\lib\javax.json.dll</HintPath>
+    </Reference>
+    <Reference Include="joda-time">
+      <HintPath>..\packages\Stanford.NLP.CoreNLP.3.5.0.0\lib\joda-time.dll</HintPath>
+    </Reference>
+    <Reference Include="jollyday">
+      <HintPath>..\packages\Stanford.NLP.CoreNLP.3.5.0.0\lib\jollyday.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-corenlp-3.5.0">
+      <HintPath>..\packages\Stanford.NLP.CoreNLP.3.5.0.0\lib\stanford-corenlp-3.5.0.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -49,6 +150,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="xom">
+      <HintPath>..\packages\Stanford.NLP.CoreNLP.3.5.0.0\lib\xom.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -209,6 +313,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ElyseEngine\ElyseEngine.csproj">
+      <Project>{e32c5fa2-385c-497b-be94-567365becf54}</Project>
+      <Name>ElyseEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElyseLibrary\ElyseLibrary.csproj">
+      <Project>{72b50e23-e5f0-46b4-b836-26f992ea2b69}</Project>
+      <Name>ElyseLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Languagetool\Languagetool.csproj">
       <Project>{fcd3dd29-af77-4a33-b479-3d0569ea5cd3}</Project>
       <Name>Languagetool</Name>
@@ -224,18 +336,6 @@
     <Resource Include="Images\arrow_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bodies\Body-left-alien.png" />
-    <Resource Include="Images\bodies\Body-left-batman.png" />
-    <Resource Include="Images\bodies\Body-left-clown.png" />
-    <Resource Include="Images\bodies\Body-left-cramp.png" />
-    <Resource Include="Images\bodies\Body-left-punk.png" />
-    <Resource Include="Images\bodies\Body-left-smocking-black.png" />
-    <Resource Include="Images\bodies\Body-left-smocking-white.png" />
-    <Resource Include="Images\bodies\Body-left-trucker.png" />
-    <Resource Include="Images\bodies\Body-left-vampire.png" />
-    <Resource Include="Images\bodies\Body-left-werewolf.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\backgrounds\background_beach.jpg" />
     <Resource Include="Images\backgrounds\background_dungeon.jpg" />
     <Resource Include="Images\backgrounds\background_garden.jpg" />
@@ -246,17 +346,30 @@
     <Resource Include="Images\backgrounds\background_street.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\heads\head-left-batman.png" />
-    <Resource Include="Images\heads\head-left-cramp.png" />
-    <Resource Include="Images\heads\head-left-monocle.png" />
-    <Resource Include="Images\heads\head-left-trucker.png" />
-    <Resource Include="Images\heads\head-left-vampire.png" />
-    <Resource Include="Images\heads\head-left-werewolf.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\empty_character.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bodies\Body-left-blue.png" />
+    <Resource Include="Images\bodies\Body-left-green.png" />
+    <Resource Include="Images\bodies\Body-left-pink.png" />
+    <Resource Include="Images\bodies\Body-left-red.png" />
+    <Resource Include="Images\bodies\Body-left-yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heads\head-left-concerned.png" />
+    <Resource Include="Images\heads\head-left-furious.png" />
+    <Resource Include="Images\heads\head-left-great.png" />
+    <Resource Include="Images\heads\head-left-happy.png" />
+    <Resource Include="Images\heads\head-left-mad.png" />
+    <Resource Include="Images\heads\head-left-normal.png" />
+    <Resource Include="Images\heads\head-left-sad.png" />
+    <Resource Include="Images\heads\head-left-sunglasses.png" />
+    <Resource Include="Images\heads\head-left-surprised.png" />
+    <Resource Include="Images\heads\head-left-unhappy.png" />
+    <Resource Include="Images\heads\head-left-zombie.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -9,13 +9,13 @@ using ElyseLibrary;
 using System.Runtime.Serialization.Formatters.Binary;
 using ElyseRender;
 using ElyseVisitors;
-
+using ElyseParser;
 
 namespace ElyseEngine
 {
     public class Engine
     {
-        public SceneBuilder sceneBuilder;
+        public SceneBuilder SceneBuilder;
         private ParserEngine parserEngine;
         private string elysePath;
         private List<Instruction> partialInstructions;
@@ -25,8 +25,8 @@ namespace ElyseEngine
 
         public Engine()
         {
-            elysePath = "B:/Visual Studio Projects";
-            sceneBuilder = new SceneBuilder();
+            elysePath = System.IO.Path.GetFullPath(@"..\..\..\..\"); 
+            SceneBuilder = new SceneBuilder();
             parserEngine = new ParserEngine(elysePath);
             partialInstructions = new List<Instruction>();
             finalInstructions = new List<Instruction>();
@@ -37,7 +37,7 @@ namespace ElyseEngine
         // Lancer l'animation
         public void Play()
         {
-            partialInstructions = parserEngine.Run(sceneBuilder);
+            partialInstructions = parserEngine.Run(SceneBuilder);
             //finalInstructions = visitorEngine.Run(partialInstructions);
             renderEngine.Run(partialInstructions);
         }
@@ -48,7 +48,7 @@ namespace ElyseEngine
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = null;
             stream = new FileStream(savePath, FileMode.Create, FileAccess.Write);
-            formatter.Serialize(stream, sceneBuilder);
+            formatter.Serialize(stream, SceneBuilder);
             stream.Flush();
             if (stream != null) stream.Close();
         }
@@ -59,7 +59,7 @@ namespace ElyseEngine
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = null;
             stream = new FileStream(loadPath, FileMode.Open, FileAccess.Read);
-            sceneBuilder = (SceneBuilder)formatter.Deserialize(stream);
+            SceneBuilder = (SceneBuilder)formatter.Deserialize(stream);
             if (stream != null) stream.Close();
         }
     }

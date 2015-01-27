@@ -20,7 +20,7 @@ namespace ElyseGUI.Models
             get { return _backgroundImage; }
             set
             {
-                _backgroundImage = String.Format("/ElyseGUI;component/Images/backgrounds/{0}.jpg", value); ;
+                _backgroundImage = String.Format("/ElyseGUI;component/Images/backgrounds/{0}.jpg", value);
                 OnPropertyChanged("backgroundImage");
             }
         }
@@ -46,6 +46,19 @@ namespace ElyseGUI.Models
             return CharacterList.Count() < MaxCharacters;
         }
 
+        public List<ElyseLibrary.Character> GetCoreCharacters()
+        {
+            var list = new List<ElyseLibrary.Character>();
+
+            foreach (var c in CharacterList)
+            {
+                if (!c.IsEmpty)
+                {
+                    list.Add(c.CoreCharacter);
+                }
+            }
+            return list;
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string p)
