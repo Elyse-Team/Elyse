@@ -8,7 +8,7 @@ namespace ElyseLibrary
 {
     // Thoughts of an entity
     // CHARACTER & ANIMAL
-    internal class Think : BasicBehavior
+    public class Think : BasicBehavior
     {
         private string _thoughts;
 
@@ -18,10 +18,15 @@ namespace ElyseLibrary
             set { _thoughts = value; }
         }
 
-        public Think(IKillable entity, string thoughts)
+        public Think(Character entity, string thoughts)
             : base(entity)
         {
             Thoughts = thoughts;
+        }
+
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
         }
     }
 }

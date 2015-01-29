@@ -43,6 +43,7 @@
     <Compile Include="Entities\Character.cs" />
     <Compile Include="Entities\IKillable.cs" />
     <Compile Include="Entities\IMaterializable.cs" />
+    <Compile Include="IInstructionVisitor.cs" />
     <Compile Include="Instructions\EntityBehaviors\BasicBehavior.cs" />
     <Compile Include="Instructions\EntityBehaviors\Fight.cs" />
     <Compile Include="Instructions\EntityBehaviors\Move.cs" />

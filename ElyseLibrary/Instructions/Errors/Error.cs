@@ -8,6 +8,9 @@ namespace ElyseLibrary
 {
     public class Error : Instruction
     {
-
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
+        }
     }
 }

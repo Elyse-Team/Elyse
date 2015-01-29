@@ -8,7 +8,7 @@ namespace ElyseLibrary
 {
     // Represent the mood of a character
     // CHARACTER only
-    internal class Feel : BasicBehavior
+    public class Feel : BasicBehavior
     {
         private string _feeling;
         public string Feeling
@@ -21,6 +21,11 @@ namespace ElyseLibrary
             : base(character)
         {
             Feeling = feeling;
+        }
+
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
         }
     }
 }

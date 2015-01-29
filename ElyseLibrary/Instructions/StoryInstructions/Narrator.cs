@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class Narrator : Instruction
+    public class Narrator : Instruction
     {
         private string _narration;
         private int _duration;
@@ -27,6 +27,11 @@ namespace ElyseLibrary
         {
             Narration = narration;
             Duration = duration;
+        }
+
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
         }
     }
 }

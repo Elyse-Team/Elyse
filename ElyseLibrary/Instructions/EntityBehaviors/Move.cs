@@ -17,10 +17,16 @@ namespace ElyseLibrary
             set { _target = value; }
         }
 
-		public Move(IKillable entity, IPositionable target)
+		public Move(Character entity, IPositionable target)
             : base(entity)
 		{
 		    Target = target;
 		}
+
+
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
+        }
     }
 }

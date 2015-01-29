@@ -10,15 +10,17 @@ namespace ElyseLibrary
     // CHARACTER & ANIMAL
     public abstract class BasicBehavior : Instruction
     {
-        readonly IKillable _entity;
-        public IKillable Entity
+        readonly Character _entity;
+        public Character Entity
         {
             get { return _entity; }
         }
 
-        public BasicBehavior(IKillable entity)
+        public BasicBehavior(Character entity)
         {
             _entity = entity;
         }
+
+        
     }
 }

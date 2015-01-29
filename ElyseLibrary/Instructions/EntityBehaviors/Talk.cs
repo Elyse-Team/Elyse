@@ -8,7 +8,7 @@ namespace ElyseLibrary
 {
     // Talk alone or with another entity
     // CHARACTER & ANIMAL
-    internal class Talk : BasicBehavior
+    public class Talk : BasicBehavior
     {
         private IMaterializable _target;
         private string _sentence;
@@ -25,11 +25,16 @@ namespace ElyseLibrary
             set { _sentence = value; }
         }
 
-		public Talk(IKillable entity, IMaterializable target, string sentence)
+		public Talk(Character entity, IMaterializable target, string sentence)
             : base(entity)
 		{
 			Target = target;
             Sentence = sentence;
 		}
+
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
+        }
     }
 }

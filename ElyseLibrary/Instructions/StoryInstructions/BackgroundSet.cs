@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class BackgroundSet : Instruction
+    public class BackgroundSet : Instruction
     {
         private Background _background;
 
@@ -20,6 +20,11 @@ namespace ElyseLibrary
         public BackgroundSet(Background background)
         {
             _background = background;
+        }
+
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
         }
     }
 }

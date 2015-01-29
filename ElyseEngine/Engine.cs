@@ -9,7 +9,7 @@ using ElyseLibrary;
 using System.Runtime.Serialization.Formatters.Binary;
 using ElyseRender;
 using ElyseVisitors;
-using ElyseParser;
+
 
 namespace ElyseEngine
 {
@@ -39,7 +39,7 @@ namespace ElyseEngine
         {
             partialInstructions = parserEngine.Run(SceneBuilder);
             //finalInstructions = visitorEngine.Run(partialInstructions);
-            renderEngine.Run(partialInstructions);
+            renderEngine.Run(partialInstructions, new Scene(SceneBuilder));
         }
 
         // Sauvegarder le SceneBuilder

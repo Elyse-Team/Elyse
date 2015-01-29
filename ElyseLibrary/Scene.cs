@@ -68,7 +68,7 @@ namespace ElyseLibrary
             return c == null;
         }
 
-        internal Position FindFreePosition(Position p)
+        public Position FindFreePosition(IPositionable p)
         {
             Position t = new Position("temp", p.X, p.Y);
             int d = 1;
@@ -81,5 +81,7 @@ namespace ElyseLibrary
             }
             return t;
         }
+
+
     }
 }

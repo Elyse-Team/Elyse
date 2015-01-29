@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElyseLibrary
 {
-    internal class TimeSet : Instruction
+    public class TimeSet : Instruction
     {
         private int _time;
 
@@ -19,6 +19,10 @@ namespace ElyseLibrary
         public TimeSet(int time)
         {
             Time = time;
+        }
+        public override T Accept<T>(IInstructionVisitor<T> visitor)
+        {
+            return visitor.visit(this);
         }
     }
 }

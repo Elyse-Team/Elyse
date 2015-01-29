@@ -8,7 +8,7 @@ namespace ElyseLibrary
 {
     // A selection of combat actions
     // CHARACTER only
-    internal class Fight : BasicBehavior
+    public class Fight : BasicBehavior
     {
 
        private string _strike;
@@ -22,6 +22,11 @@ namespace ElyseLibrary
          : base(character)
        {
            Strike = strike;
+       }
+
+       public override T Accept<T>(IInstructionVisitor<T> visitor)
+       {
+           return visitor.visit(this);
        }
    }
 }
